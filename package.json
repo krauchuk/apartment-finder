@@ -1,0 +1,35 @@
+{
+  "name": "apartment-finder",
+  "version": "1.0.0",
+  "description": "Frontend app for finding the best apartments",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --env=dev",
+    "build": "webpack --env=prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krauchuk/apartment-finder.git"
+  },
+  "author": "Ihar Krauchuk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/krauchuk/apartment-finder/issues"
+  },
+  "homepage": "https://github.com/krauchuk/apartment-finder#readme",
+  "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@babel/preset-react": "^7.16.5",
+    "babel-loader": "^8.2.3",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.6.0"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
