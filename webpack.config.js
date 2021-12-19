@@ -1,11 +1,11 @@
-const path = require('path');
+const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const webpackConfig = {
   mode: 'development',
   output: {
     path: path.join(__dirname, '/dist'),
-    filename: 'index.bundle.js'
+    filename: 'index.bundle.js',
   },
   module: {
     rules: [
@@ -13,10 +13,10 @@ const webpackConfig = {
         test: /\.(js|jsx)$/,
         exclude: /nodeModules/,
         use: {
-          loader: 'babel-loader'
-        }
+          loader: 'babel-loader',
+        },
       },
-    ]
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({ template: './src/index.html' }),
@@ -25,6 +25,6 @@ const webpackConfig = {
     port: 3000,
     hot: true,
   },
-};
+}
 
-module.exports = webpackConfig;
+module.exports = webpackConfig
