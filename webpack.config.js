@@ -7,11 +7,14 @@ const webpackConfig = {
     path: path.join(__dirname, '/dist'),
     filename: 'index.bundle.js',
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /nodeModules/,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
         },
