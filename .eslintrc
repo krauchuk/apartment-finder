@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "standard",
+    "plugin:react/recommended"
+  ],
+  "env": {
+    "browser": true
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "indent": ["error", 2],
+    "comma-dangle": [1, "always-multiline"]
+  }
+}
