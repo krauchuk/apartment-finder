@@ -1,7 +1,9 @@
 import React from 'react'
 
+import HeroImage from '../info/HeroImage'
+
 const HomePage = () => {
-  return <div>Home</div>
+  return <HeroImage />
 }
 
 export default HomePage
