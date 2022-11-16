@@ -1,6 +1,7 @@
 import React from 'react'
 
 import HeroImage from '../info/HeroImage'
+import SearchBar from '../search/SearchBar'
 import AdList from '../ads/AdList'
 
 const HomePage = () => {
@@ -8,7 +9,8 @@ const HomePage = () => {
 
   return <>
     <HeroImage />
-    <AdList data={premiumAds} />
+    <SearchBar />
+    <AdList items={premiumAds} />
   </>
 }
 

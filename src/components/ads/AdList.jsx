@@ -2,10 +2,10 @@ import React from 'react'
 
 import AdPreview from './AdPreview'
 
-const AdList = ({ data }) => {
+const AdList = ({ items }) => {
   return <div>
     {
-      data.map(ad => <AdPreview key={ad.id} data={ad} />)
+      items.map(ad => <AdPreview key={ad.id} data={ad} />)
     }
   </div>
 }
