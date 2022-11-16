@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ContactUsPage = () => {
+function ContactUsPage() {
   return <div>Contact us</div>
 }
 

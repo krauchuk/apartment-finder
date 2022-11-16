@@ -8,15 +8,15 @@ import Home from './pages/Home'
 import FAQ from './pages/FAQ'
 import Contact from './pages/ContactUs'
 
-const App = () => {
+function App() {
   return (
     <BrowserRouter>
       <Header />
       <main>
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/faq' element={<FAQ />} />
-          <Route path='/contact' element={<Contact />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
       <Footer />

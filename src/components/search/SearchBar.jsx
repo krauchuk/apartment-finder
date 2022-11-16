@@ -1,13 +1,15 @@
 import React from 'react'
 
-const SearchBar = () => {
+function SearchBar() {
   const submitHandler = event => {
     event.preventDefault()
   }
 
-  return <form onSubmit={submitHandler}>
-    <button type="submit">Find</button>
-  </form>
+  return (
+    <form onSubmit={submitHandler}>
+      <button type="submit">Find</button>
+    </form>
+  )
 }
 
 export default SearchBar
