@@ -18,15 +18,18 @@ const webpackConfig = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
+          options: {
+            plugins: ['@babel/plugin-transform-runtime'],
+          },
         },
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({ template: './src/index.html' }),
-    new ESLintPlugin({
-      extensions: ['.js', '.jsx'],
-    }),
+    // new ESLintPlugin({
+    //   extensions: ['.js', '.jsx'],
+    // }),
   ],
   devServer: {
     port: 3000,
