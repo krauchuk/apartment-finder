@@ -6,7 +6,7 @@ function AdPreview({ data }) {
   return (
     <div>
       <span>{data.date}</span>
-      <Image src={data.image} />
+      <Image src={data.images[0]} />
       <div>
         <h3>{data.name}</h3>
         <span>{data.price}</span>
