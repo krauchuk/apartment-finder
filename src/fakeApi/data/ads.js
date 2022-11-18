@@ -1,6 +1,7 @@
 export const premiumAds = [
   {
     id: 1,
+    date: 'yesterday',
     images: [
       'https://images.unsplash.com/photo-1515263487990-61b07816b324?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80',
     ],
@@ -11,6 +12,7 @@ export const premiumAds = [
   },
   {
     id: 2,
+    date: '14/05/2022',
     images: [
       'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80',
     ],
@@ -21,6 +23,7 @@ export const premiumAds = [
   },
   {
     id: 3,
+    date: '03/10/2022',
     images: [
       'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80',
     ],

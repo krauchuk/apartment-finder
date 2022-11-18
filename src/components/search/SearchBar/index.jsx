@@ -1,14 +1,16 @@
 import React from 'react'
 
+import { Form, SubmitButton } from './styles'
+
 function SearchBar() {
   const submitHandler = event => {
     event.preventDefault()
   }
 
   return (
-    <form onSubmit={submitHandler}>
-      <button type="submit">Find</button>
-    </form>
+    <Form onSubmit={submitHandler}>
+      <SubmitButton>Find</SubmitButton>
+    </Form>
   )
 }
 

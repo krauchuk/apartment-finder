@@ -14,13 +14,14 @@ function HomePage() {
 
   useEffect(() => {
     dispatch(fetchPremiumAds())
-  }, [])
+  }, [dispatch])
 
   return (
     <>
-      <HeroImage />
-      <SearchBar />
-      <AdList items={premiumAds} />
+      <HeroImage>
+        <SearchBar />
+      </HeroImage>
+      <AdList items={premiumAds} title="Premium Ads" />
     </>
   )
 }
