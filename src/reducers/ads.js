@@ -68,7 +68,7 @@ export default function ads(state = initState, action) {
         ...state,
         regular: {
           ...state.premium,
-          items: action.payload,
+          ...action.payload,
           loading: false,
         },
       }
