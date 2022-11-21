@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Button } from './styles'
 
-function CustomButton({ type = 'button', text = 'Click', onClick }) {
+const CustomButton = ({ type = 'button', text = 'Click', onClick }) => {
   return (
     <Button type={type} onClick={onClick}>
       {text}

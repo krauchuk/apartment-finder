@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Wrapper, Column, ColumnTitle, ColumnLink, Copyrights } from './styles'
 
-function Footer() {
+const Footer = () => {
   const year = new Date().getFullYear()
 
   return (

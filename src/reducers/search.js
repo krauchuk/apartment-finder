@@ -1,5 +1,5 @@
 import { RENT_TYPE } from '../constants/search'
-import { SET_AD_TYPE, SET_CITY, SET_MIN_PRICE, SET_MAX_PRICE } from '../constants/actionTypes/search'
+import { CHANGE_SEARCH_STATE } from '../constants/actions'
 
 const initState = {
   adType: RENT_TYPE,
@@ -10,28 +10,10 @@ const initState = {
 
 export default function ads(state = initState, action) {
   switch (action.type) {
-    case SET_AD_TYPE:
+    case CHANGE_SEARCH_STATE:
       return {
         ...state,
-        adType: action.payload,
-      }
-
-    case SET_CITY:
-      return {
-        ...state,
-        city: action.payload,
-      }
-
-    case SET_MIN_PRICE:
-      return {
-        ...state,
-        minPrice: action.payload,
-      }
-
-    case SET_MAX_PRICE:
-      return {
-        ...state,
-        maxPrice: action.payload,
+        [action.field]: action.payload,
       }
 
     default:

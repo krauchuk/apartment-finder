@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Wrapper, Header, Description } from './styles'
 
-function HeroImage({ children }) {
+const HeroImage = ({ children }) => {
   return (
     <Wrapper>
       <Header>Apartment Finder</Header>

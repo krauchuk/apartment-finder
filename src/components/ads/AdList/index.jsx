@@ -4,7 +4,7 @@ import AdPreview from '../AdPreview'
 
 import { Wrapper, Title, Grid } from './styles'
 
-function AdList({ items, title }) {
+const AdList = ({ items, title }) => {
   return (
     <Wrapper>
       {title && <Title>{title}</Title>}

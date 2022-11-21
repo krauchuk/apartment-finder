@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 
 import { Wrapper, Logo, Navigation, NavLink } from './styles'
 
-function Header() {
+const Header = () => {
   const location = useLocation().pathname
 
   return (

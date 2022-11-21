@@ -1,6 +1,6 @@
 import React from 'react'
 
-function FAQPage() {
+const FAQPage = () => {
   return <div>FAQ</div>
 }
 

@@ -1,4 +1,4 @@
-import * as types from '../constants/actionTypes/ads'
+import * as types from '../constants/actions'
 import { PREMIUM_ADS_URL, REGULAR_ADS_URL } from '../constants/urls'
 
 import client from '../fakeApi/client'

@@ -4,7 +4,7 @@ import Image from '../../common/Image'
 
 import { Wrapper, AdDate, InfoBlock, AdName, AdPrice, AdType, AdAddress } from './styles'
 
-function AdPreview({ data }) {
+const AdPreview = ({ data }) => {
   return (
     <Wrapper>
       <AdDate>{data.date}</AdDate>
