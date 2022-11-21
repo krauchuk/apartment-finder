@@ -1,5 +1,5 @@
-import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React, { useState, useCallback } from 'react'
+import { useDispatch } from 'react-redux'
 
 import Select from '../../common/Select'
 import Input from '../../common/Input'
@@ -11,16 +11,15 @@ import { CHANGE_SEARCH_STATE } from '../../../constants/actions'
 import { Form, Fieldset } from './styles'
 
 const SearchBar = ({ onSubmit }) => {
-  const { adType, city, minPrice, maxPrice } = useSelector(state => state.search)
+  const [searchState, setSearchState] = useState({})
 
   const dispatch = useDispatch()
 
-  // use callback
-  const inputHandler = ({ target }) =>
-    dispatch({ type: CHANGE_SEARCH_STATE, field: target.name, payload: target.value })
+  const inputHandler = useCallback(({ target }) => setSearchState(old => ({ ...old, [target.name]: target.value })), [])
 
   const submitHandler = event => {
     event.preventDefault()
+    dispatch({ type: CHANGE_SEARCH_STATE, payload: searchState })
     if (onSubmit) onSubmit()
   }
 
@@ -33,7 +32,6 @@ const SearchBar = ({ onSubmit }) => {
             { value: RENT_TYPE, text: 'Rent' },
             { value: SALE_TYPE, text: 'Sale' },
           ]}
-          value={adType}
           onChange={inputHandler}
         />
         <Select
@@ -43,13 +41,12 @@ const SearchBar = ({ onSubmit }) => {
             { value: 'warsaw', text: 'Warsaw' },
             { value: 'wroclaw', text: 'Wroclaw' },
           ]}
-          value={city}
           onChange={inputHandler}
         />
       </Fieldset>
       <Fieldset>
-        <Input name="minPrice" type="number" value={minPrice} placeholder="min price" onChange={inputHandler} />
-        <Input name="maxPrice" type="number" value={maxPrice} placeholder="max price" onChange={inputHandler} />
+        <Input name="minPrice" type="number" placeholder="min price" onChange={inputHandler} />
+        <Input name="maxPrice" type="number" placeholder="max price" onChange={inputHandler} />
       </Fieldset>
       <Button type="submit" text="Find" />
     </Form>

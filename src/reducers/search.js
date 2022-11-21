@@ -13,7 +13,7 @@ export default function ads(state = initState, action) {
     case CHANGE_SEARCH_STATE:
       return {
         ...state,
-        [action.field]: action.payload,
+        ...action.payload,
       }
 
     default:
