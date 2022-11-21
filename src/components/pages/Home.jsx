@@ -19,7 +19,7 @@ function HomePage() {
   return (
     <>
       <HeroImage>
-        <SearchBar />
+        <SearchBar openAdsPage />
       </HeroImage>
       <AdList items={premiumAds} title="Premium Ads" />
     </>

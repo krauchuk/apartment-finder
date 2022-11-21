@@ -7,7 +7,7 @@ const responses = {
 }
 
 export default {
-  get: url =>
+  get: (url, params = {}) =>
     new Promise(resolve => {
       const delay = Math.random() * 1500
       setTimeout(() => resolve(responses[url]), delay)

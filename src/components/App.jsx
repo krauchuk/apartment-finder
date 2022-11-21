@@ -10,6 +10,7 @@ import Footer from './common/Footer'
 
 import Home from './pages/Home'
 import FAQ from './pages/FAQ'
+import Ads from './pages/Ads'
 
 import Contact from './pages/ContactUs'
 
@@ -37,6 +38,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/ads" element={<Ads />} />
           </Routes>
         </main>
         <Footer />
