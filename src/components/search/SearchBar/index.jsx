@@ -1,11 +1,11 @@
 import React, { useState, useCallback } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
-import Select from '../../common/Select'
-import Input from '../../common/Input'
-import Button from '../../common/Button'
+import Select from '@components/common/Select'
+import Input from '@components/common/Input'
+import Button from '@components/common/Button'
 
-import { RENT_TYPE, SALE_TYPE } from '../../../constants/search'
+import { RENT_TYPE, SALE_TYPE } from '@constants/search'
 
 import { Form, Fieldset } from './styles'
 

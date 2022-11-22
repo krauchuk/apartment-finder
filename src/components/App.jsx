@@ -3,15 +3,15 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { createGlobalStyle } from 'styled-components'
 
-import Header from './common/Header'
-import Footer from './common/Footer'
+import Header from '@components/common/Header'
+import Footer from '@components/common/Footer'
 
-import Home from './pages/Home'
-import FAQ from './pages/FAQ'
-import Ads from './pages/Ads'
-import Contact from './pages/ContactUs'
+import Home from '@pages/Home'
+import FAQ from '@pages/FAQ'
+import Ads from '@pages/Ads'
+import Contact from '@pages/ContactUs'
 
-import store from './store'
+import store from '@store'
 
 const GlobalStyles = createGlobalStyle`
   * {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Image from '../../common/Image'
+import Image from '@components/common/Image'
 
 import { Wrapper, AdDate, InfoBlock, AdName, AdPrice, AdType, AdAddress } from './styles'
 

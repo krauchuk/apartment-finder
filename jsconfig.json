@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@actions/*": ["src/actions/*"],
+      "@components/*": ["src/components/*"],
+      "@constants/*": ["src/constants/*"],
+      "@fakeApi/*": ["src/fakeApi/*"],
+      "@pages/*": ["src/pages/*"],
+      "@store/*": ["src/store/*"]
+    }
+  }
+}

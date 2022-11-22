@@ -2,11 +2,11 @@ import React, { useEffect, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-import HeroImage from '../info/HeroImage'
-import SearchBar from '../search/SearchBar'
-import AdList from '../ads/AdList'
+import HeroImage from '@components/info/HeroImage'
+import SearchBar from '@components/search/SearchBar'
+import AdList from '@components/ads/AdList'
 
-import { fetchPremiumAds } from '../../actions/ads'
+import { fetchPremiumAds } from '@actions/ads'
 
 const HomePage = () => {
   const { items, loading } = useSelector(state => state.ads.premium)

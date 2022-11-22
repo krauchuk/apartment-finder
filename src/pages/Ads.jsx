@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
 
-import SearchBar from '../search/SearchBar'
-import AdList from '../ads/AdList'
+import SearchBar from '@components/search/SearchBar'
+import AdList from '@components/ads/AdList'
 
-import { fetchRegularAds } from '../../actions/ads'
+import { fetchRegularAds } from '@actions/ads'
 
 const AdsPage = () => {
   const [params] = useSearchParams()

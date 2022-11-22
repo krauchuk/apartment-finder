@@ -1,7 +1,7 @@
 import React from 'react'
 
-import AdPreview from '../AdPreview'
-import Spinner from '../../common/Spinner'
+import AdPreview from '@components/ads/AdPreview'
+import Spinner from '@components/common/Spinner'
 
 import { Wrapper, Title, Grid } from './styles'
 

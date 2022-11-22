@@ -6,6 +6,9 @@
     "jest": true,
     "node": true
   },
+  "settings": {
+    "import/resolver": "webpack"
+  },
   "parser": "@babel/eslint-parser",
   "rules": {
     "indent": ["off"],

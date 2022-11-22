@@ -1,4 +1,4 @@
-import { RENT_TYPE, SALE_TYPE } from '../../constants/search'
+import { RENT_TYPE, SALE_TYPE } from '@constants/search'
 
 export const premiumAds = {
   items: [

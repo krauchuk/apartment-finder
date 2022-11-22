@@ -1,6 +1,5 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ESLintPlugin = require('eslint-webpack-plugin')
 
 const webpackConfig = {
   mode: 'development',
@@ -10,6 +9,14 @@ const webpackConfig = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
+    alias: {
+      '@actions': path.resolve(__dirname, 'src/actions'),
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@constants': path.resolve(__dirname, 'src/constants'),
+      '@fakeApi': path.resolve(__dirname, 'src/fakeApi'),
+      '@pages': path.resolve(__dirname, 'src/pages'),
+      '@store': path.resolve(__dirname, 'src/store'),
+    },
   },
   module: {
     rules: [
@@ -25,12 +32,7 @@ const webpackConfig = {
       },
     ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({ template: './src/index.html' }),
-    // new ESLintPlugin({
-    //   extensions: ['.js', '.jsx'],
-    // }),
-  ],
+  plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],
   devServer: {
     port: 3000,
     hot: true,

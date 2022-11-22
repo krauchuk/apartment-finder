@@ -1,4 +1,4 @@
-import { PREMIUM_ADS_URL, REGULAR_ADS_URL } from '../constants/urls'
+import { PREMIUM_ADS_URL, REGULAR_ADS_URL } from '@constants/urls'
 import { premiumAds, regularAds } from './data/ads'
 
 const responses = {

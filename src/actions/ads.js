@@ -1,7 +1,7 @@
-import * as types from '../constants/actions'
-import { PREMIUM_ADS_URL, REGULAR_ADS_URL } from '../constants/urls'
+import * as types from '@constants/actions'
+import { PREMIUM_ADS_URL, REGULAR_ADS_URL } from '@constants/urls'
 
-import client from '../fakeApi/client'
+import client from '@fakeApi/client'
 
 export const fetchPremiumAds = () => async dispatch => {
   try {
