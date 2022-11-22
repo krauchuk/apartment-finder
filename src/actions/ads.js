@@ -14,17 +14,13 @@ export const fetchPremiumAds = () => async dispatch => {
   }
 }
 
-export const fetchRegularAds =
-  (page = 1) =>
-  async (dispatch, getState) => {
-    try {
-      const { search: params } = getState()
+export const fetchRegularAds = params => async dispatch => {
+  try {
+    dispatch({ type: types.FETCH_REGULAR_REQUEST })
 
-      dispatch({ type: types.FETCH_REGULAR_REQUEST })
-
-      const payload = await client.get(REGULAR_ADS_URL, { ...params, page })
-      dispatch({ type: types.FETCH_REGULAR_SUCCESS, payload })
-    } catch (e) {
-      dispatch({ type: types.FETCH_REGULAR_FAILURE })
-    }
+    const payload = await client.get(REGULAR_ADS_URL, params)
+    dispatch({ type: types.FETCH_REGULAR_SUCCESS, payload })
+  } catch (e) {
+    dispatch({ type: types.FETCH_REGULAR_FAILURE })
   }
+}

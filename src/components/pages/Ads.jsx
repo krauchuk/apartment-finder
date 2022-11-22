@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { useSearchParams } from 'react-router-dom'
 
 import SearchBar from '../search/SearchBar'
 import AdList from '../ads/AdList'
@@ -7,18 +8,20 @@ import AdList from '../ads/AdList'
 import { fetchRegularAds } from '../../actions/ads'
 
 const AdsPage = () => {
-  const ads = useSelector(state => state.ads.regular.items)
+  const [params] = useSearchParams()
+
+  const { items, loading } = useSelector(state => state.ads.regular)
 
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(fetchRegularAds())
-  }, [dispatch])
+    dispatch(fetchRegularAds(params))
+  }, [dispatch, params])
 
   return (
     <>
       <SearchBar />
-      <AdList items={ads} />
+      <AdList items={items} loading={loading} />
     </>
   )
 }

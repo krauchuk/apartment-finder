@@ -1,18 +1,23 @@
 import React from 'react'
 
 import AdPreview from '../AdPreview'
+import Spinner from '../../common/Spinner'
 
 import { Wrapper, Title, Grid } from './styles'
 
-const AdList = ({ items, title }) => {
+const AdList = ({ items, loading, title }) => {
   return (
     <Wrapper>
       {title && <Title>{title}</Title>}
-      <Grid>
-        {items.map(ad => (
-          <AdPreview key={ad.id} data={ad} />
-        ))}
-      </Grid>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <Grid>
+          {items.map(ad => (
+            <AdPreview key={ad.id} data={ad} />
+          ))}
+        </Grid>
+      )}
     </Wrapper>
   )
 }

@@ -9,21 +9,21 @@ import AdList from '../ads/AdList'
 import { fetchPremiumAds } from '../../actions/ads'
 
 const HomePage = () => {
-  const premiumAds = useSelector(state => state.ads.premium.items)
+  const { items, loading } = useSelector(state => state.ads.premium)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
   useEffect(() => dispatch(fetchPremiumAds()), [dispatch])
 
-  const searchHandler = useCallback(() => navigate('/ads'), [navigate])
+  const searchHandler = useCallback(() => navigate(`/ads${window.location.search}`), [navigate])
 
   return (
     <>
       <HeroImage>
         <SearchBar onSubmit={searchHandler} />
       </HeroImage>
-      <AdList items={premiumAds} title="Premium Ads" />
+      <AdList items={items} loading={loading} title="Premium Ads" />
     </>
   )
 }
