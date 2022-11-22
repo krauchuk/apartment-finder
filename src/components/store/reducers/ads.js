@@ -5,7 +5,7 @@ import {
   FETCH_REGULAR_REQUEST,
   FETCH_REGULAR_SUCCESS,
   FETCH_REGULAR_FAILURE,
-} from '../constants/actions'
+} from '../../../constants/actions'
 
 const initState = {
   premium: {

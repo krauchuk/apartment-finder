@@ -11,7 +11,7 @@ import FAQ from './pages/FAQ'
 import Ads from './pages/Ads'
 import Contact from './pages/ContactUs'
 
-import store from '../store'
+import store from './store'
 
 const GlobalStyles = createGlobalStyle`
   * {
