@@ -7,6 +7,8 @@ import AdList from '@components/ads/AdList'
 
 import { fetchRegularAds } from '@actions/ads'
 
+import { SearchWrapper } from './styles'
+
 const AdsPage = () => {
   const [params] = useSearchParams()
 
@@ -20,7 +22,9 @@ const AdsPage = () => {
 
   return (
     <>
-      <SearchBar />
+      <SearchWrapper>
+        <SearchBar />
+      </SearchWrapper>
       <AdList items={items} loading={loading} />
     </>
   )

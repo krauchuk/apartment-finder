@@ -7,7 +7,7 @@ import Button from '@components/common/Button'
 
 import { RENT_TYPE, SALE_TYPE } from '@constants/search'
 
-import { Form, Fieldset } from './styles'
+import { Form, Fieldset, FieldsetLegend, ButtonWrapper } from './styles'
 
 const cityOptions = [
   { value: 'krakow', text: 'Krakow' },
@@ -47,6 +47,7 @@ const SearchBar = ({ onSubmit }) => {
         <Select name="city" options={cityOptions} value={searchState.city} onChange={inputHandler} />
       </Fieldset>
       <Fieldset>
+        <FieldsetLegend>Price</FieldsetLegend>
         <Input
           value={searchState.minPrice}
           name="minPrice"
@@ -62,7 +63,9 @@ const SearchBar = ({ onSubmit }) => {
           onChange={inputHandler}
         />
       </Fieldset>
-      <Button type="submit" text="Find" />
+      <ButtonWrapper>
+        <Button type="submit" text="Find" />
+      </ButtonWrapper>
     </Form>
   )
 }
