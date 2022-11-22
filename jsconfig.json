@@ -6,6 +6,7 @@
       "@components/*": ["src/components/*"],
       "@constants/*": ["src/constants/*"],
       "@fakeApi/*": ["src/fakeApi/*"],
+      "@helpers/*": ["src/helpers/*"],
       "@pages/*": ["src/pages/*"],
       "@store/*": ["src/store/*"]
     }

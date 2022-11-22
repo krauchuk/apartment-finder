@@ -15,7 +15,7 @@ const initState = {
   regular: {
     items: [],
     count: 0,
-    pages: 1,
+    pages: 0,
     loading: true,
   },
 }
@@ -56,7 +56,7 @@ export default function ads(state = initState, action) {
       return {
         ...state,
         regular: {
-          ...state.premium,
+          ...state.regular,
           items: [],
           loading: true,
         },
@@ -66,7 +66,7 @@ export default function ads(state = initState, action) {
       return {
         ...state,
         regular: {
-          ...state.premium,
+          ...state.regular,
           ...action.payload,
           loading: false,
         },
@@ -76,7 +76,7 @@ export default function ads(state = initState, action) {
       return {
         ...state,
         regular: {
-          ...state.premium,
+          ...state.regular,
           items: [],
           loading: false,
         },

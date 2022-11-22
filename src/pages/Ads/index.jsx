@@ -4,8 +4,11 @@ import { useSearchParams } from 'react-router-dom'
 
 import SearchBar from '@components/search/SearchBar'
 import AdList from '@components/ads/AdList'
+import Pagination from '@components/pagination/PaginationBar'
 
 import { fetchRegularAds } from '@actions/ads'
+
+import { toObject } from '@helpers/query'
 
 import { SearchWrapper } from './styles'
 
@@ -17,7 +20,8 @@ const AdsPage = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(fetchRegularAds(params))
+    const formattedParams = toObject(params.toString())
+    dispatch(fetchRegularAds(formattedParams))
   }, [dispatch, params])
 
   return (
@@ -26,6 +30,7 @@ const AdsPage = () => {
         <SearchBar />
       </SearchWrapper>
       <AdList items={items} loading={loading} />
+      <Pagination />
     </>
   )
 }
