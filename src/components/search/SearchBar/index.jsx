@@ -20,8 +20,8 @@ const SearchBar = ({ onSubmit }) => {
   const [searchState, setSearchState] = useState({
     adType: params.get('adType') || RENT_TYPE,
     city: params.get('city') || cityOptions[0].value,
-    minPrice: params.get('minPrice'),
-    maxPrice: params.get('maxPrice'),
+    minPrice: params.get('minPrice') || '',
+    maxPrice: params.get('maxPrice') || '',
   })
 
   const inputHandler = ({ target }) => setSearchState(old => ({ ...old, [target.name]: target.value }))

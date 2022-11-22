@@ -40,13 +40,12 @@ export const premiumAds = {
 
 export const regularAds = {
   count: 7,
-  page: 1,
   pages: 2,
   items: [
     {
       id: 10,
       date: 'today',
-      images: [''],
+      images: ['https://via.placeholder.com/350'],
       name: 'Regular 1',
       price: '$900',
       type: RENT_TYPE,
@@ -55,7 +54,7 @@ export const regularAds = {
     {
       id: 9,
       date: 'today',
-      images: [''],
+      images: ['https://via.placeholder.com/350'],
       name: 'Regular 2',
       price: '$1900',
       type: RENT_TYPE,
@@ -64,7 +63,7 @@ export const regularAds = {
     {
       id: 8,
       date: 'yesterday',
-      images: [''],
+      images: ['https://via.placeholder.com/350'],
       name: 'Regular 3',
       price: '$700,000',
       type: SALE_TYPE,
@@ -73,7 +72,7 @@ export const regularAds = {
     {
       id: 7,
       date: '14/10/2022',
-      images: [''],
+      images: ['https://via.placeholder.com/350'],
       name: 'Regular 4',
       price: '$900',
       type: RENT_TYPE,
@@ -82,7 +81,7 @@ export const regularAds = {
     {
       id: 6,
       date: '12/10/2022',
-      images: [''],
+      images: ['https://via.placeholder.com/350'],
       name: 'Regular 5',
       price: '$600',
       type: RENT_TYPE,
@@ -91,7 +90,7 @@ export const regularAds = {
     {
       id: 5,
       date: '05/10/2022',
-      images: [''],
+      images: ['https://via.placeholder.com/350'],
       name: 'Regular 6',
       price: '$900,000',
       type: SALE_TYPE,
@@ -100,7 +99,7 @@ export const regularAds = {
     {
       id: 4,
       date: '01/10/2022',
-      images: [''],
+      images: ['https://via.placeholder.com/350'],
       name: 'Regular 7',
       price: '$300',
       type: RENT_TYPE,

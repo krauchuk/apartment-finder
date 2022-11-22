@@ -15,7 +15,6 @@ const initState = {
   regular: {
     items: [],
     count: 0,
-    page: 1,
     pages: 1,
     loading: true,
   },
