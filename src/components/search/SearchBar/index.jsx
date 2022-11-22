@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
 import Select from '@components/common/Select'
@@ -24,7 +24,7 @@ const SearchBar = ({ onSubmit }) => {
     maxPrice: params.get('maxPrice'),
   })
 
-  const inputHandler = useCallback(({ target }) => setSearchState(old => ({ ...old, [target.name]: target.value })), [])
+  const inputHandler = ({ target }) => setSearchState(old => ({ ...old, [target.name]: target.value }))
 
   const submitHandler = event => {
     event.preventDefault()

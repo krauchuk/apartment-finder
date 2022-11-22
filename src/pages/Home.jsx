@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
@@ -16,7 +16,7 @@ const HomePage = () => {
 
   useEffect(() => dispatch(fetchPremiumAds()), [dispatch])
 
-  const searchHandler = useCallback(() => navigate(`/ads${window.location.search}`), [navigate])
+  const searchHandler = () => navigate(`/ads${window.location.search}`)
 
   return (
     <>
