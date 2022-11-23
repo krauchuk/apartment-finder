@@ -1,9 +1,12 @@
-export const toObject = string =>
-  string.split('&').reduce((acc, s) => {
+export const toObject = string => {
+  if (!string) return {}
+
+  return string.split('&').reduce((acc, s) => {
     const [name, value] = s.split('=')
 
     return { ...acc, [name]: value }
   }, {})
+}
 
 export const toString = object =>
   Object.keys(object)

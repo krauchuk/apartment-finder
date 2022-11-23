@@ -7,6 +7,8 @@ import Button from '@components/common/Button'
 
 import { RENT_TYPE, SALE_TYPE } from '@constants/search'
 
+import { getLikeObject } from '@helpers/query'
+
 import { Form, Fieldset, FieldsetLegend, ButtonWrapper } from './styles'
 
 const cityOptions = [
@@ -28,7 +30,10 @@ const SearchBar = ({ onSubmit }) => {
 
   const submitHandler = event => {
     event.preventDefault()
-    setParams(searchState)
+
+    const oldParams = getLikeObject()
+    setParams({ ...oldParams, ...searchState })
+
     if (onSubmit) onSubmit()
   }
 
