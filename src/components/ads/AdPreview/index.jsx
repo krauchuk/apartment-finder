@@ -1,12 +1,17 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import Image from '@components/common/Image'
 
 import { Wrapper, AdDate, InfoBlock, AdName, AdPrice, AdType, AdAddress } from './styles'
 
 const AdPreview = ({ data }) => {
+  const navigate = useNavigate()
+
+  const onClickHandler = () => navigate(`/ad/${data.id}`)
+
   return (
-    <Wrapper>
+    <Wrapper onClick={onClickHandler}>
       <AdDate>{data.date}</AdDate>
       <Image src={data.images[0]} />
       <InfoBlock>

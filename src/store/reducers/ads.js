@@ -1,11 +1,4 @@
-import {
-  FETCH_PREMIUM_REQUEST,
-  FETCH_PREMIUM_SUCCESS,
-  FETCH_PREMIUM_FAILURE,
-  FETCH_REGULAR_REQUEST,
-  FETCH_REGULAR_SUCCESS,
-  FETCH_REGULAR_FAILURE,
-} from '@constants/actions'
+import * as types from '@constants/actions'
 
 const initState = {
   premium: {
@@ -18,11 +11,15 @@ const initState = {
     pages: 0,
     loading: true,
   },
+  selected: {
+    data: {},
+    loading: true,
+  },
 }
 
 export default function ads(state = initState, action) {
   switch (action.type) {
-    case FETCH_PREMIUM_REQUEST:
+    case types.FETCH_PREMIUM_REQUEST:
       return {
         ...state,
         premium: {
@@ -32,7 +29,7 @@ export default function ads(state = initState, action) {
         },
       }
 
-    case FETCH_PREMIUM_SUCCESS:
+    case types.FETCH_PREMIUM_SUCCESS:
       return {
         ...state,
         premium: {
@@ -42,7 +39,7 @@ export default function ads(state = initState, action) {
         },
       }
 
-    case FETCH_PREMIUM_FAILURE:
+    case types.FETCH_PREMIUM_FAILURE:
       return {
         ...state,
         premium: {
@@ -52,7 +49,7 @@ export default function ads(state = initState, action) {
         },
       }
 
-    case FETCH_REGULAR_REQUEST:
+    case types.FETCH_REGULAR_REQUEST:
       return {
         ...state,
         regular: {
@@ -62,7 +59,7 @@ export default function ads(state = initState, action) {
         },
       }
 
-    case FETCH_REGULAR_SUCCESS:
+    case types.FETCH_REGULAR_SUCCESS:
       return {
         ...state,
         regular: {
@@ -72,12 +69,41 @@ export default function ads(state = initState, action) {
         },
       }
 
-    case FETCH_REGULAR_FAILURE:
+    case types.FETCH_REGULAR_FAILURE:
       return {
         ...state,
         regular: {
           ...state.regular,
           items: [],
+          loading: false,
+        },
+      }
+
+    case types.FETCH_AD_REQUEST:
+      return {
+        ...state,
+        selected: {
+          ...state.selected,
+          data: {},
+          loading: true,
+        },
+      }
+
+    case types.FETCH_AD_SUCCESS:
+      return {
+        ...state,
+        selected: {
+          ...state.selected,
+          data: action.payload,
+          loading: false,
+        },
+      }
+
+    case types.FETCH_AD_FAILURE:
+      return {
+        ...state,
+        selected: {
+          ...state.selected,
           loading: false,
         },
       }

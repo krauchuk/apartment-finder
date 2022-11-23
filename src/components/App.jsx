@@ -9,6 +9,7 @@ import Footer from '@components/common/Footer'
 import Home from '@pages/Home'
 import FAQ from '@pages/FAQ'
 import Ads from '@pages/Ads'
+import Ad from '@pages/Ad'
 import Contact from '@pages/ContactUs'
 
 import store from '@store'
@@ -34,6 +35,7 @@ const App = () => {
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/ads" element={<Ads />} />
+            <Route path="/ad/:id" element={<Ad />} />
           </Routes>
         </main>
         <Footer />

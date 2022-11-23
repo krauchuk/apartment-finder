@@ -1,5 +1,5 @@
 import * as types from '@constants/actions'
-import { PREMIUM_ADS_URL, REGULAR_ADS_URL } from '@constants/urls'
+import { PREMIUM_ADS_URL, REGULAR_ADS_URL, AD_URL } from '@constants/urls'
 
 import client from '@fakeApi/client'
 
@@ -22,5 +22,16 @@ export const fetchRegularAds = params => async dispatch => {
     dispatch({ type: types.FETCH_REGULAR_SUCCESS, payload })
   } catch (e) {
     dispatch({ type: types.FETCH_REGULAR_FAILURE })
+  }
+}
+
+export const fetchAdById = id => async dispatch => {
+  try {
+    dispatch({ type: types.FETCH_AD_REQUEST })
+
+    const payload = await client.get(AD_URL, { id })
+    dispatch({ type: types.FETCH_AD_SUCCESS, payload })
+  } catch (e) {
+    dispatch({ type: types.FETCH_AD_FAILURE })
   }
 }
