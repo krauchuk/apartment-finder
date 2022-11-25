@@ -6,13 +6,13 @@ import { createGlobalStyle } from 'styled-components'
 import Header from '@components/common/Header'
 import Footer from '@components/common/Footer'
 
-import Home from '@pages/Home'
-import FAQ from '@pages/FAQ'
-import Ads from '@pages/Ads'
-import Ad from '@pages/Ad'
-import Contact from '@pages/ContactUs'
+import Home from '../pages/Home'
+import FAQ from '../pages/FAQ'
+import Ads from '../pages/Ads'
+import Ad from '../pages/Ad'
+import Contact from '../pages/ContactUs'
 
-import store from '@store'
+import store from '../store'
 
 const GlobalStyles = createGlobalStyle`
   * {

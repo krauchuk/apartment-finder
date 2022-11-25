@@ -5,8 +5,6 @@ import Select from '@components/common/Select'
 import Input from '@components/common/Input'
 import Button from '@components/common/Button'
 
-import { RENT_TYPE, SALE_TYPE } from '@constants/search'
-
 import { getLikeObject } from '@helpers/query'
 
 import { Form, Fieldset, FieldsetLegend, ButtonWrapper } from './styles'
@@ -20,7 +18,7 @@ const cityOptions = [
 const SearchBar = ({ onSubmit }) => {
   const [params, setParams] = useSearchParams()
   const [searchState, setSearchState] = useState({
-    adType: params.get('adType') || RENT_TYPE,
+    adType: params.get('adType') || 'rent',
     city: params.get('city') || cityOptions[0].value,
     minPrice: params.get('minPrice') || '',
     maxPrice: params.get('maxPrice') || '',
@@ -43,8 +41,8 @@ const SearchBar = ({ onSubmit }) => {
         <Select
           name="adType"
           options={[
-            { value: RENT_TYPE, text: 'Rent' },
-            { value: SALE_TYPE, text: 'Sale' },
+            { value: 'rent', text: 'Rent' },
+            { value: 'sale', text: 'Sale' },
           ]}
           value={searchState.adType}
           onChange={inputHandler}

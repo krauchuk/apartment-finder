@@ -1,5 +1,3 @@
-import { RENT_TYPE, SALE_TYPE } from '@constants/search'
-
 export const premiumAds = {
   items: [
     {
@@ -10,7 +8,7 @@ export const premiumAds = {
       ],
       name: 'Downtown apartment',
       price: '$800',
-      type: RENT_TYPE,
+      type: 'rent',
       address: '360 Summit Street Pawtucket, RI 02860',
     },
     {
@@ -21,7 +19,7 @@ export const premiumAds = {
       ],
       name: 'St.Redford apartment',
       price: '$930,000',
-      type: SALE_TYPE,
+      type: 'sale',
       address: '54 Livingston St.Redford, MI 48239',
     },
     {
@@ -32,7 +30,7 @@ export const premiumAds = {
       ],
       name: 'Good choice',
       price: '$650',
-      type: RENT_TYPE,
+      type: 'rent',
       address: '91 Woodsman Lane Bluffton, SC 29910',
     },
   ],
@@ -48,7 +46,7 @@ export const regularAds = {
       images: ['https://via.placeholder.com/350'],
       name: 'Regular 1',
       price: '$900',
-      type: RENT_TYPE,
+      type: 'rent',
       address: 'address 1',
     },
     {
@@ -57,7 +55,7 @@ export const regularAds = {
       images: ['https://via.placeholder.com/350'],
       name: 'Regular 2',
       price: '$1900',
-      type: RENT_TYPE,
+      type: 'rent',
       address: 'address 2',
     },
     {
@@ -66,7 +64,7 @@ export const regularAds = {
       images: ['https://via.placeholder.com/350'],
       name: 'Regular 3',
       price: '$700,000',
-      type: SALE_TYPE,
+      type: 'sale',
       address: 'address 3',
     },
     {
@@ -75,7 +73,7 @@ export const regularAds = {
       images: ['https://via.placeholder.com/350'],
       name: 'Regular 4',
       price: '$900',
-      type: RENT_TYPE,
+      type: 'rent',
       address: 'address 4',
     },
     {
@@ -84,7 +82,7 @@ export const regularAds = {
       images: ['https://via.placeholder.com/350'],
       name: 'Regular 5',
       price: '$600',
-      type: RENT_TYPE,
+      type: 'rent',
       address: 'address 5',
     },
     {
@@ -93,7 +91,7 @@ export const regularAds = {
       images: ['https://via.placeholder.com/350'],
       name: 'Regular 6',
       price: '$900,000',
-      type: SALE_TYPE,
+      type: 'sale',
       address: 'address 6',
     },
     {
@@ -102,7 +100,7 @@ export const regularAds = {
       images: ['https://via.placeholder.com/350'],
       name: 'Regular 7',
       price: '$300',
-      type: RENT_TYPE,
+      type: 'rent',
       address: 'address 7',
     },
   ],
