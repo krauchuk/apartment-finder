@@ -1,22 +1,21 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
-import { useSearchParams } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
 
 import Button from '@components/common/Button'
+
+import { UPDATE_FILTER } from '@constants/actions'
 
 import { Wrapper } from './styles'
 
 const Pagination = () => {
-  const [params, setParams] = useSearchParams()
-
   const { pages } = useSelector(state => state.ads.regular)
-  const buttonKeys = Array.from(Array(pages).keys(), k => k + 1)
-  const page = +(params.get('page') || 1)
+  const { page } = useSelector(state => state.filter)
 
-  const clickHandler = p => {
-    params.set('page', p)
-    setParams(params)
-  }
+  const dispatch = useDispatch()
+
+  const clickHandler = p => dispatch({ type: UPDATE_FILTER, payload: { page: p } })
+
+  const buttonKeys = Array.from(Array(pages).keys(), k => k + 1)
 
   if (pages === 0) return null
 

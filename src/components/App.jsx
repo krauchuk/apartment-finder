@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Provider } from 'react-redux'
+import { Provider, useDispatch, useSelector } from 'react-redux'
 import { createGlobalStyle } from 'styled-components'
 
+import Spinner from '@components/common/Spinner'
 import Header from '@components/common/Header'
 import Footer from '@components/common/Footer'
+
+import { initApp } from '@actions/app'
 
 import Home from '../pages/Home'
 import FAQ from '../pages/FAQ'
@@ -24,8 +27,18 @@ const GlobalStyles = createGlobalStyle`
 `
 
 const App = () => {
+  const dispatch = useDispatch()
+
+  const { initialized } = useSelector(state => state.app)
+
+  useEffect(() => {
+    dispatch(initApp())
+  }, [dispatch])
+
+  if (!initialized) return <Spinner />
+
   return (
-    <Provider store={store}>
+    <>
       <GlobalStyles />
       <BrowserRouter>
         <Header />
@@ -40,8 +53,16 @@ const App = () => {
         </main>
         <Footer />
       </BrowserRouter>
+    </>
+  )
+}
+
+const AppWrapper = () => {
+  return (
+    <Provider store={store}>
+      <App />
     </Provider>
   )
 }
 
-export default App
+export default AppWrapper

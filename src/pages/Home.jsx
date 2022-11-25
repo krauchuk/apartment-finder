@@ -3,10 +3,12 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 import HeroImage from '@components/info/HeroImage'
-import SearchBar from '@components/search/SearchBar'
+import Filter from '@components/Filter'
 import AdList from '@components/ads/AdList'
 
 import { fetchPremiumAds } from '@actions/ads'
+
+import { UPDATE_FILTER } from '@constants/actions'
 
 const HomePage = () => {
   const { items, loading } = useSelector(state => state.ads.premium)
@@ -16,12 +18,15 @@ const HomePage = () => {
 
   useEffect(() => dispatch(fetchPremiumAds()), [dispatch])
 
-  const searchHandler = () => navigate(`/ads${window.location.search}`)
+  const searchHandler = () => {
+    dispatch({ type: UPDATE_FILTER, payload: { page: 1 } })
+    navigate(`/ads${window.location.search}`)
+  }
 
   return (
     <>
       <HeroImage>
-        <SearchBar onSubmit={searchHandler} />
+        <Filter onSubmit={searchHandler} />
       </HeroImage>
       <AdList items={items} loading={loading} title="Premium Ads" />
     </>

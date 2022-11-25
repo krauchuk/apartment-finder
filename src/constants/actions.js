@@ -11,3 +11,5 @@ export const FETCH_AD_SUCCESS = 'ads/fetch_ad_success'
 export const FETCH_AD_FAILURE = 'ads/fetch_ad_failure'
 
 export const UPDATE_FILTER = 'filter/update'
+
+export const SET_APP_INIT = 'app/init'

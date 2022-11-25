@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 
 import Select from '@components/common/Select'
 import Input from '@components/common/Input'
 import Button from '@components/common/Button'
 
-import { getLikeObject } from '@helpers/query'
+import { UPDATE_FILTER } from '@constants/actions'
 
 import { Form, Fieldset, FieldsetLegend, ButtonWrapper } from './styles'
 
@@ -15,22 +15,25 @@ const cityOptions = [
   { value: 'wroclaw', text: 'Wroclaw' },
 ]
 
-const SearchBar = ({ onSubmit }) => {
-  const [params, setParams] = useSearchParams()
+const Filter = ({ onSubmit }) => {
+  const { adType, city, minPrice, maxPrice, rooms } = useSelector(state => state.filter)
+
   const [searchState, setSearchState] = useState({
-    adType: params.get('adType') || 'rent',
-    city: params.get('city') || cityOptions[0].value,
-    minPrice: params.get('minPrice') || '',
-    maxPrice: params.get('maxPrice') || '',
+    adType,
+    city,
+    minPrice,
+    maxPrice,
+    rooms,
   })
+
+  const dispatch = useDispatch()
 
   const inputHandler = ({ target }) => setSearchState(old => ({ ...old, [target.name]: target.value }))
 
   const submitHandler = event => {
     event.preventDefault()
 
-    const oldParams = getLikeObject()
-    setParams({ ...oldParams, ...searchState })
+    dispatch({ type: UPDATE_FILTER, payload: searchState })
 
     if (onSubmit) onSubmit()
   }
@@ -73,4 +76,4 @@ const SearchBar = ({ onSubmit }) => {
   )
 }
 
-export default SearchBar
+export default Filter

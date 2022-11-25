@@ -1,4 +1,4 @@
-export const toObject = string => {
+const toObject = string => {
   if (!string) return {}
 
   return string.split('&').reduce((acc, s) => {
@@ -8,11 +8,18 @@ export const toObject = string => {
   }, {})
 }
 
-export const toString = object =>
+const toString = object =>
   Object.keys(object)
     .map(key => `${key}=${object[key]}`)
     .join('&')
 
-export const getLikeString = () => window.location.search.slice(1)
+const getAsString = () => window.location.search.slice(1)
 
-export const getLikeObject = () => toObject(getLikeString())
+const getAsObject = () => toObject(getAsString())
+
+export default {
+  toObject,
+  toString,
+  getAsString,
+  getAsObject,
+}
