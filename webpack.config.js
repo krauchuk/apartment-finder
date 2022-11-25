@@ -15,7 +15,6 @@ const webpackConfig = {
       '@components': path.resolve(__dirname, 'src/components'),
       '@constants': path.resolve(__dirname, 'src/constants'),
       '@fakeApi': path.resolve(__dirname, 'fakeApi'),
-      '@helpers': path.resolve(__dirname, 'src/helpers'),
     },
   },
   module: {
