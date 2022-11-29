@@ -6,6 +6,7 @@ const initState = {
   minPrice: 0,
   maxPrice: 0,
   rooms: 0,
+  perPage: 6,
   page: 1,
 }
 
