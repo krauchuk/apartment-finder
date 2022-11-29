@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-import HeroImage from '@components/info/HeroImage'
+import HeroImage from '@components/HeroImage'
 import Filter from '@components/Filter'
 import AdList from '@components/ads/AdList'
 
