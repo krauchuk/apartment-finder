@@ -1,4 +1,6 @@
 export const premiumAds = {
+  count: 3,
+  pages: 0,
   items: [
     {
       id: 1,

@@ -8,7 +8,7 @@ import actionTypes from '@actions'
 import { Wrapper } from './styles'
 
 const Pagination = () => {
-  const { pages } = useSelector(state => state.ads.regular)
+  const { pages } = useSelector(state => state.ads)
   const { page } = useSelector(state => state.filter)
 
   const dispatch = useDispatch()

@@ -10,7 +10,7 @@ import { Wrapper } from './styles'
 
 const AdPage = () => {
   const { id } = useParams()
-  const { data, loading } = useSelector(state => state.ads.selected)
+  const { selected, loading } = useSelector(state => state.ads)
 
   const dispatch = useDispatch()
 
@@ -25,7 +25,7 @@ const AdPage = () => {
       </Wrapper>
     )
 
-  return <Wrapper>{data.id}</Wrapper>
+  return <Wrapper>{selected.id}</Wrapper>
 }
 
 export default AdPage

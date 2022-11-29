@@ -9,7 +9,7 @@ import AdList from '@components/ads/AdList'
 import actionTypes from '@actions'
 
 const HomePage = () => {
-  const { items, loading } = useSelector(state => state.ads.premium)
+  const { items, loading } = useSelector(state => state.ads)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()

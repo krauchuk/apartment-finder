@@ -13,7 +13,7 @@ import { SearchWrapper } from './styles'
 const AdsPage = () => {
   const [_, setSearchParams] = useSearchParams()
 
-  const { items, loading } = useSelector(state => state.ads.regular)
+  const { items, loading } = useSelector(state => state.ads)
   const filter = useSelector(state => state.filter)
 
   const dispatch = useDispatch()

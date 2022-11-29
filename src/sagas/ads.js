@@ -6,9 +6,9 @@ import actionTypes from '@actions'
 
 function* fetchPremiumAds() {
   try {
-    const { items } = yield call(apiClient.get, 'fake.api/get_premium_ads')
+    const data = yield call(apiClient.get, 'fake.api/get_premium_ads')
 
-    yield put({ type: actionTypes.FETCH_PREMIUM_SUCCESS, payload: items })
+    yield put({ type: actionTypes.FETCH_PREMIUM_SUCCESS, payload: data })
   } catch (e) {
     yield put({ type: actionTypes.FETCH_PREMIUM_FAILURE })
   }
@@ -35,9 +35,9 @@ function* watchFetchRegularAds() {
 
 function* fetchAdById(action) {
   try {
-    const adData = yield call(apiClient.get, 'fake.api/get_ad', action.payload)
+    const data = yield call(apiClient.get, 'fake.api/get_ad', action.payload)
 
-    yield put({ type: actionTypes.FETCH_AD_SUCCESS, payload: adData })
+    yield put({ type: actionTypes.FETCH_AD_SUCCESS, payload: data })
   } catch (e) {
     yield put({ type: actionTypes.FETCH_AD_FAILURE })
   }

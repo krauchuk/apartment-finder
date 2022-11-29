@@ -1,111 +1,59 @@
 import types from '@actions'
 
 const initState = {
-  premium: {
-    items: [],
-    loading: true,
-  },
-  regular: {
-    items: [],
-    count: 0,
-    pages: 0,
-    loading: true,
-  },
-  selected: {
-    data: {},
-    loading: true,
-  },
+  items: [],
+  pages: 0,
+  count: 0,
+  selected: {},
+  loading: true,
 }
 
 export default function ads(state = initState, action) {
   switch (action.type) {
     case types.FETCH_PREMIUM_REQUEST:
-      return {
-        ...state,
-        premium: {
-          ...state.premium,
-          items: [],
-          loading: true,
-        },
-      }
-
-    case types.FETCH_PREMIUM_SUCCESS:
-      return {
-        ...state,
-        premium: {
-          ...state.premium,
-          items: action.payload,
-          loading: false,
-        },
-      }
-
-    case types.FETCH_PREMIUM_FAILURE:
-      return {
-        ...state,
-        premium: {
-          ...state.premium,
-          items: [],
-          loading: false,
-        },
-      }
-
     case types.FETCH_REGULAR_REQUEST:
       return {
         ...state,
-        regular: {
-          ...state.regular,
-          items: [],
-          loading: true,
-        },
+        items: [],
+        pages: 0,
+        loading: true,
       }
 
+    case types.FETCH_PREMIUM_SUCCESS:
     case types.FETCH_REGULAR_SUCCESS:
       return {
         ...state,
-        regular: {
-          ...state.regular,
-          ...action.payload,
-          loading: false,
-        },
+        items: action.payload.items,
+        pages: action.payload.pages,
+        count: action.payload.count,
+        loading: false,
       }
 
+    case types.FETCH_PREMIUM_FAILURE:
     case types.FETCH_REGULAR_FAILURE:
       return {
         ...state,
-        regular: {
-          ...state.regular,
-          items: [],
-          loading: false,
-        },
+        loading: false,
       }
 
     case types.FETCH_AD_REQUEST:
       return {
         ...state,
-        selected: {
-          ...state.selected,
-          data: {},
-          loading: true,
-        },
+        selected: {},
+        loading: true,
       }
 
     case types.FETCH_AD_SUCCESS:
       return {
         ...state,
-        selected: {
-          ...state.selected,
-          data: action.payload,
-          loading: false,
-        },
+        selected: action.payload,
+        loading: false,
       }
 
     case types.FETCH_AD_FAILURE:
       return {
         ...state,
-        selected: {
-          ...state.selected,
-          loading: false,
-        },
+        loading: false,
       }
 
     default:
