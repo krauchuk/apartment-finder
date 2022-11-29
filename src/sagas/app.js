@@ -1,6 +1,8 @@
-import { UPDATE_FILTER, SET_APP_INIT } from '@constants/actions'
+import { put, takeEvery } from 'redux-saga/effects'
 
-export const initApp = () => async dispatch => {
+import actionTypes from '@actions'
+
+function* initApp() {
   const { search, href } = window.location
   const searchParams = new URLSearchParams(search)
 
@@ -15,6 +17,12 @@ export const initApp = () => async dispatch => {
     page: +(initPage || 1),
   }
 
-  dispatch({ type: UPDATE_FILTER, payload })
-  dispatch({ type: SET_APP_INIT, payload: true })
+  yield put({ type: actionTypes.UPDATE_FILTER, payload })
+  yield put({ type: actionTypes.SET_APP_INIT_STATUS, payload: true })
 }
+
+function* watchInitApp() {
+  yield takeEvery(actionTypes.APP_INITIALIZE, initApp)
+}
+
+export default watchInitApp

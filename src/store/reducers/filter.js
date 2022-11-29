@@ -1,4 +1,4 @@
-import { UPDATE_FILTER } from '@constants/actions'
+import types from '@actions'
 
 const initState = {
   adType: 'rent',
@@ -11,7 +11,7 @@ const initState = {
 
 export default function filter(state = initState, action) {
   switch (action.type) {
-    case UPDATE_FILTER:
+    case types.UPDATE_FILTER:
       return {
         ...state,
         ...action.payload,

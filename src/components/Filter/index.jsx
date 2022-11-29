@@ -5,7 +5,7 @@ import Select from '@components/common/Select'
 import Input from '@components/common/Input'
 import Button from '@components/common/Button'
 
-import { UPDATE_FILTER } from '@constants/actions'
+import actionTypes from '@actions'
 
 import { Form, Fieldset, FieldsetLegend, ButtonWrapper } from './styles'
 
@@ -33,7 +33,7 @@ const Filter = ({ onSubmit }) => {
   const submitHandler = event => {
     event.preventDefault()
 
-    dispatch({ type: UPDATE_FILTER, payload: searchState })
+    dispatch({ type: actionTypes.UPDATE_FILTER, payload: searchState })
 
     if (onSubmit) onSubmit()
   }

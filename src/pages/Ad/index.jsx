@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { fetchAdById } from '@actions/ads'
+import actionTypes from '@actions'
 
 import Spinner from '@components/common/Spinner'
 
@@ -15,7 +15,7 @@ const AdPage = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(fetchAdById(id))
+    dispatch({ type: actionTypes.FETCH_AD_REQUEST, payload: id })
   }, [dispatch, id])
 
   if (loading)

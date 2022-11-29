@@ -1,4 +1,4 @@
-import * as types from '@constants/actions'
+import types from '@actions'
 
 const initState = {
   premium: {

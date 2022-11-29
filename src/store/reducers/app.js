@@ -1,4 +1,4 @@
-import { SET_APP_INIT } from '@constants/actions'
+import types from '@actions'
 
 const initState = {
   initialized: false,
@@ -6,7 +6,7 @@ const initState = {
 
 export default function app(state = initState, action) {
   switch (action.type) {
-    case SET_APP_INIT:
+    case types.SET_APP_INIT_STATUS:
       return {
         ...state,
         initialized: action.payload,

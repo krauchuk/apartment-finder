@@ -6,9 +6,7 @@ import HeroImage from '@components/HeroImage'
 import Filter from '@components/Filter'
 import AdList from '@components/ads/AdList'
 
-import { fetchPremiumAds } from '@actions/ads'
-
-import { UPDATE_FILTER } from '@constants/actions'
+import actionTypes from '@actions'
 
 const HomePage = () => {
   const { items, loading } = useSelector(state => state.ads.premium)
@@ -16,10 +14,10 @@ const HomePage = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  useEffect(() => dispatch(fetchPremiumAds()), [dispatch])
+  useEffect(() => dispatch({ type: actionTypes.FETCH_PREMIUM_REQUEST }), [dispatch])
 
   const searchHandler = () => {
-    dispatch({ type: UPDATE_FILTER, payload: { page: 1 } })
+    dispatch({ type: actionTypes.UPDATE_FILTER, payload: { page: 1 } })
     navigate(`/ads${window.location.search}`)
   }
 

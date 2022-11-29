@@ -7,7 +7,7 @@ import Spinner from '@components/common/Spinner'
 import Header from '@components/common/Header'
 import Footer from '@components/common/Footer'
 
-import { initApp } from '@actions/app'
+import actionTypes from '@actions'
 
 import Home from '../pages/Home'
 import FAQ from '../pages/FAQ'
@@ -32,7 +32,7 @@ const App = () => {
   const { initialized } = useSelector(state => state.app)
 
   useEffect(() => {
-    dispatch(initApp())
+    dispatch({ type: actionTypes.APP_INITIALIZE })
   }, [dispatch])
 
   if (!initialized) return <Spinner />

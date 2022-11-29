@@ -4,7 +4,6 @@
     "paths": {
       "@actions/*": ["src/actions/*"],
       "@components/*": ["src/components/*"],
-      "@constants/*": ["src/constants/*"],
       "@fakeApi/*": ["fakeApi/*"]
     }
   }

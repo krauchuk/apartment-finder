@@ -6,7 +6,7 @@ import Filter from '@components/Filter'
 import AdList from '@components/ads/AdList'
 import Pagination from '@components/Pagination'
 
-import { fetchRegularAds } from '@actions/ads'
+import actionTypes from '@actions'
 
 import { SearchWrapper } from './styles'
 
@@ -19,7 +19,7 @@ const AdsPage = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(fetchRegularAds())
+    dispatch({ type: actionTypes.FETCH_REGULAR_REQUEST })
     setSearchParams(filter)
   }, [dispatch, setSearchParams, filter])
 

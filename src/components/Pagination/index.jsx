@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import Button from '@components/common/Button'
 
-import { UPDATE_FILTER } from '@constants/actions'
+import actionTypes from '@actions'
 
 import { Wrapper } from './styles'
 
@@ -13,7 +13,7 @@ const Pagination = () => {
 
   const dispatch = useDispatch()
 
-  const clickHandler = p => dispatch({ type: UPDATE_FILTER, payload: { page: p } })
+  const clickHandler = p => dispatch({ type: actionTypes.UPDATE_FILTER, payload: { page: p } })
 
   const buttonKeys = Array.from(Array(pages).keys(), k => k + 1)
 
