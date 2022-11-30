@@ -1,6 +1,8 @@
-import { put, takeEvery } from 'redux-saga/effects'
+import { put, takeEvery, call, takeLatest, all } from 'redux-saga/effects'
 
 import actionTypes from '@actions'
+
+import apiClient from '@fakeApi/client'
 
 function* initApp() {
   const { search, href } = window.location
@@ -25,4 +27,20 @@ function* watchInitApp() {
   yield takeEvery(actionTypes.APP_INITIALIZE, initApp)
 }
 
-export default watchInitApp
+function* fetchCities() {
+  try {
+    const data = yield call(apiClient.get, 'fake.api/get_cities')
+
+    yield put({ type: actionTypes.FETCH_CITIES_SUCCESS, payload: data })
+  } catch (e) {
+    yield put({ type: actionTypes.FETCH_CITIES_FAILURE })
+  }
+}
+
+function* watchFetchCities() {
+  yield takeLatest(actionTypes.FETCH_CITIES_REQUEST, fetchCities)
+}
+
+export default function* appSaga() {
+  yield all([watchInitApp(), watchFetchCities()])
+}

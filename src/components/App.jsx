@@ -32,6 +32,7 @@ const App = () => {
   const { initialized } = useSelector(state => state.app)
 
   useEffect(() => {
+    dispatch({ type: actionTypes.FETCH_CITIES_REQUEST })
     dispatch({ type: actionTypes.APP_INITIALIZE })
   }, [dispatch])
 

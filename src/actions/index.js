@@ -11,6 +11,10 @@ export default {
   FETCH_AD_SUCCESS: 'ads/fetch_ad_success',
   FETCH_AD_FAILURE: 'ads/fetch_ad_failure',
 
+  FETCH_CITIES_REQUEST: 'ads/fetch_cities_request',
+  FETCH_CITIES_SUCCESS: 'ads/fetch_cities_success',
+  FETCH_CITIES_FAILURE: 'ads/fetch_cities_failure',
+
   UPDATE_FILTER: 'filter/update',
 
   APP_INITIALIZE: 'app/initialize',

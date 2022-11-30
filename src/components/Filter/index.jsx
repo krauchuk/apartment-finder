@@ -9,14 +9,9 @@ import actionTypes from '@actions'
 
 import { Form, Fieldset, FieldsetLegend, ButtonWrapper } from './styles'
 
-const cityOptions = [
-  { value: 'krakow', text: 'Krakow' },
-  { value: 'warsaw', text: 'Warsaw' },
-  { value: 'wroclaw', text: 'Wroclaw' },
-]
-
 const Filter = ({ onSubmit }) => {
   const { adType, city, minPrice, maxPrice, rooms } = useSelector(state => state.filter)
+  const { loading, cities } = useSelector(state => state.app)
 
   const [searchState, setSearchState] = useState({
     adType,
@@ -50,7 +45,13 @@ const Filter = ({ onSubmit }) => {
           value={searchState.adType}
           onChange={inputHandler}
         />
-        <Select name="city" options={cityOptions} value={searchState.city} onChange={inputHandler} />
+        <Select
+          name="city"
+          options={cities.map(c => ({ value: c, text: c }))}
+          value={searchState.city}
+          onChange={inputHandler}
+          disabled={loading}
+        />
       </Fieldset>
       <Fieldset>
         <FieldsetLegend>Price</FieldsetLegend>
@@ -70,7 +71,7 @@ const Filter = ({ onSubmit }) => {
         />
       </Fieldset>
       <ButtonWrapper>
-        <Button type="submit" text="Find" />
+        <Button type="submit" text="Find" disabled={loading} />
       </ButtonWrapper>
     </Form>
   )

@@ -3,22 +3,23 @@ import { types, cities } from './data'
 
 export default count => {
   const ads = []
-  const usedCities = []
+  const usedCities = new Set()
 
   for (let i = 0; i < count; i += 1) {
-    const isPremium = i < 3
     const type = getRandomItem(types)
     const basePrice = getRandomNumber(100, 1000)
     const rooms = getRandomItem([1, 2, 3, 4])
+    const city = getRandomItem(cities)
 
     ads.push({
       id: i,
       type,
       rooms,
+      city,
       name: `Apartment #${i}`,
       address: `street, ${i}`,
-      premium: isPremium,
-      price: isPremium ? basePrice * 1000 : basePrice,
+      premium: i < 3,
+      price: type === 'rent' ? basePrice : basePrice * 1000,
       images: [
         `https://via.placeholder.com/350?Text=id:${i}|pic1`,
         `https://via.placeholder.com/350?Text=id:${i}|pic2`,
@@ -26,12 +27,13 @@ export default count => {
       ],
       square: getRandomNumber(20, 35) * rooms,
       date: getRandomDate(),
-      city: getRandomItem(cities),
       floor: getRandomNumber(1, 16),
       constructionYear: getRandomNumber(1980, 2022),
       wallMaterial: getRandomItem(['monolith', 'bricks', 'wood', 'gas silicate']),
     })
+
+    usedCities.add(city)
   }
 
-  return { ads, usedCities }
+  return { ads, usedCities: [...usedCities].sort() }
 }
