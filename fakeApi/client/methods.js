@@ -1,14 +1,16 @@
-import ads from './data/ads'
+import { getData } from './data'
 
-const getAdById = ({ id }) => ads.find(ad => ad.id === id) || {}
+const { ads, cities } = getData()
 
-const getPremiumAds = () => {
+export const getAdById = ({ id }) => ads.find(ad => ad.id === id) || {}
+
+export const getPremiumAds = () => {
   const items = ads.filter(ad => ad.premium)
 
   return { items, pages: 1, count: items.length }
 }
 
-const getRegularAds = params => {
+export const getRegularAds = params => {
   const { perPage = 6, page = 1, rooms = 0, city, adType = 'rent', minPrice = 0, maxPrice = 0 } = params
 
   const filtered = ads
@@ -33,16 +35,4 @@ const getRegularAds = params => {
   return { items, count, pages, page }
 }
 
-const responses = {
-  'fake.api/get_premium_ads': () => getPremiumAds(),
-  'fake.api/get_regular_ads': params => getRegularAds(params),
-  'fake.api/get_ad': params => getAdById(params),
-}
-
-export default {
-  get: (url, paramsObj = {}) =>
-    new Promise(resolve => {
-      const delay = Math.random() * 1500
-      setTimeout(() => resolve(responses[url](paramsObj)), delay)
-    }),
-}
+export const getCities = () => cities
