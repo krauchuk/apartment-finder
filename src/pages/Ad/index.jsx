@@ -15,7 +15,7 @@ const AdPage = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch({ type: actionTypes.FETCH_AD_REQUEST, payload: id })
+    dispatch({ type: actionTypes.FETCH_AD_REQUEST, payload: +id })
   }, [dispatch, id])
 
   if (loading)

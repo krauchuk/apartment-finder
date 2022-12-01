@@ -35,7 +35,7 @@ function* watchFetchRegularAds() {
 
 function* fetchAdById(action) {
   try {
-    const data = yield call(apiClient.get, 'fake.api/get_ad', action.payload)
+    const data = yield call(apiClient.get, 'fake.api/get_ad', { id: action.payload })
 
     yield put({ type: actionTypes.FETCH_AD_SUCCESS, payload: data })
   } catch (e) {
