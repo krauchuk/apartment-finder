@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import Select from '@components/common/Select'
@@ -22,6 +22,12 @@ const Filter = ({ onSubmit }) => {
   })
 
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (!city) {
+      setSearchState(old => ({ ...old, city: cities[0] }))
+    }
+  }, [cities])
 
   const inputHandler = ({ target }) => setSearchState(old => ({ ...old, [target.name]: target.value }))
 
