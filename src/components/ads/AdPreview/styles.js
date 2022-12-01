@@ -32,6 +32,10 @@ export const AdName = styled.h3``
 
 export const AdPrice = styled.span``
 
+export const SizeBlock = styled.div``
+
 export const AdRooms = styled.span``
+
+export const AdSquare = styled.span``
 
 export const AdAddress = styled.span``
