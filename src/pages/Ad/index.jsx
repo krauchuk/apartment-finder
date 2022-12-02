@@ -6,6 +6,7 @@ import actionTypes from '@actions'
 
 import Spinner from '@components/common/Spinner'
 import Carousel from '@components/common/Carousel'
+import Breadcrumbs from '@components/ads/Breadcrumbs'
 
 import {
   Wrapper,
@@ -48,6 +49,7 @@ const AdPage = () => {
 
   return (
     <Wrapper>
+      <Breadcrumbs ad={data} />
       <Carousel images={data.images} />
       <AdHeader>
         <AdName>{data.name}</AdName>
