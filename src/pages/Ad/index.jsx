@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import actionTypes from '@actions'
 
 import Spinner from '@components/common/Spinner'
+import Carousel from '@components/common/Carousel'
 
 import {
   Wrapper,
@@ -47,6 +48,7 @@ const AdPage = () => {
 
   return (
     <Wrapper>
+      <Carousel images={data.images} />
       <AdHeader>
         <AdName>{data.name}</AdName>
         <AdPrice>${data.price}</AdPrice>
