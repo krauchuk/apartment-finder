@@ -1,4 +1,4 @@
-import { getRandomDate, getRandomItem, getRandomNumber, getRandomHexCode } from './helpers'
+import { getRandomDate, getRandomItem, getRandomNumber, getRandomPics } from './helpers'
 import { types, cities } from './data'
 
 export default count => {
@@ -20,11 +20,7 @@ export default count => {
       address: `street, ${i}`,
       premium: i < 3,
       price: type === 'rent' ? basePrice : basePrice * 1000,
-      images: [
-        `https://via.placeholder.com/350/${getRandomHexCode()}/${getRandomHexCode()}?text=${city}${i}|pic1`,
-        `https://via.placeholder.com/350?${getRandomHexCode()}/${getRandomHexCode()}text=${city}${i}|pic2`,
-        `https://via.placeholder.com/350?${getRandomHexCode()}/${getRandomHexCode()}text=${city}${i}|pic3`,
-      ],
+      images: getRandomPics(city),
       square: getRandomNumber(20, 35) * rooms,
       date: getRandomDate(),
       floor: getRandomNumber(1, 16),
