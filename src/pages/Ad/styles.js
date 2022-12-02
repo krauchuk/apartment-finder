@@ -58,3 +58,4 @@ export const MainInfoRow = styled.div`
     font-weight: bold;
   }
 `
+export const Description = styled.div``

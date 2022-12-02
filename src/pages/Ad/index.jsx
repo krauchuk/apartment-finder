@@ -6,7 +6,17 @@ import actionTypes from '@actions'
 
 import Spinner from '@components/common/Spinner'
 
-import { Wrapper, AdHeader, AdName, AdAddress, AdPrice, MainInfo, MainInfoBlock, MainInfoRow } from './styles'
+import {
+  Wrapper,
+  AdHeader,
+  AdName,
+  AdAddress,
+  AdPrice,
+  MainInfo,
+  MainInfoBlock,
+  MainInfoRow,
+  Description,
+} from './styles'
 
 const Row = ({ title, info, children }) => (
   <MainInfoRow>
@@ -57,6 +67,7 @@ const AdPage = () => {
           <Row title="Wall material" info={data.wallMaterial} />
         </MainInfoBlock>
       </MainInfo>
+      <Description>{data.desc}</Description>
     </Wrapper>
   )
 }

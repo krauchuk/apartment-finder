@@ -30,6 +30,7 @@ export default count => {
       floor: getRandomNumber(1, 16),
       constructionYear: getRandomNumber(1980, 2022),
       wallMaterial: getRandomItem(['monolith', 'bricks', 'wood', 'gas silicate']),
+      desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mauris justo, sollicitudin et libero non, ultrices interdum nisl. Ut eu faucibus diam, et maximus lorem. Nunc in magna tristique tellus gravida suscipit. Praesent malesuada, felis egestas mattis porttitor, lacus metus scelerisque urna, eget condimentum velit quam eget tortor. Nunc at tellus vestibulum, efficitur nunc non, tristique ante. Nulla tincidunt felis a ipsum commodo, a rhoncus ipsum congue. Nulla laoreet orci quis pretium pulvinar. Mauris porttitor ex ipsum, eget lobortis purus interdum ut. Fusce vulputate vulputate dignissim. Suspendisse suscipit tincidunt egestas. Sed nec dui eget turpis fringilla sollicitudin nec interdum leo. Cras pulvinar nisl in mi vehicula fermentum. Suspendisse condimentum neque volutpat, iaculis magna eu, malesuada dolor.',
     })
 
     usedCities.add(city)
