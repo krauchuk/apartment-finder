@@ -1,19 +1,12 @@
 import types from '@actions'
 
 const initState = {
-  initialized: false,
   cities: [],
   loading: true,
 }
 
 export default function app(state = initState, action) {
   switch (action.type) {
-    case types.SET_APP_INIT_STATUS:
-      return {
-        ...state,
-        initialized: action.payload,
-      }
-
     case types.FETCH_CITIES_REQUEST:
       return {
         ...state,

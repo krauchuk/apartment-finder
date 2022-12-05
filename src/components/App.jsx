@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Provider, useDispatch, useSelector } from 'react-redux'
+import { Provider, useDispatch } from 'react-redux'
 import { createGlobalStyle } from 'styled-components'
 
-import Spinner from '@components/common/Spinner'
 import Header from '@components/common/Header'
 import Footer from '@components/common/Footer'
 
@@ -29,14 +28,9 @@ const GlobalStyles = createGlobalStyle`
 const App = () => {
   const dispatch = useDispatch()
 
-  const { initialized } = useSelector(state => state.app)
-
   useEffect(() => {
     dispatch({ type: actionTypes.FETCH_CITIES_REQUEST })
-    dispatch({ type: actionTypes.APP_INITIALIZE })
   }, [dispatch])
-
-  if (!initialized) return <Spinner />
 
   return (
     <>

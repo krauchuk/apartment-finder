@@ -16,7 +16,4 @@ export default {
   FETCH_CITIES_FAILURE: 'ads/fetch_cities_failure',
 
   UPDATE_FILTER: 'filter/update',
-
-  APP_INITIALIZE: 'app/initialize',
-  SET_APP_INIT_STATUS: 'app/set_init_status',
 }
