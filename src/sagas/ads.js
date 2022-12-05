@@ -14,10 +14,6 @@ function* fetchPremiumAds() {
   }
 }
 
-function* watchFetchPremiumAds() {
-  yield takeLatest(actionTypes.FETCH_PREMIUM_REQUEST, fetchPremiumAds)
-}
-
 function* fetchRegularAds() {
   try {
     const params = yield select(state => state.filter)
@@ -27,10 +23,6 @@ function* fetchRegularAds() {
   } catch (e) {
     yield put({ type: actionTypes.FETCH_REGULAR_FAILURE })
   }
-}
-
-function* watchFetchRegularAds() {
-  yield takeLatest(actionTypes.FETCH_REGULAR_REQUEST, fetchRegularAds)
 }
 
 function* fetchAdById(action) {
@@ -43,10 +35,10 @@ function* fetchAdById(action) {
   }
 }
 
-function* watchFetchAdById() {
-  yield takeLatest(actionTypes.FETCH_AD_REQUEST, fetchAdById)
-}
-
 export default function* adsSaga() {
-  yield all([watchFetchPremiumAds(), watchFetchRegularAds(), watchFetchAdById()])
+  yield all([
+    takeLatest(actionTypes.FETCH_PREMIUM_REQUEST, fetchPremiumAds),
+    takeLatest(actionTypes.FETCH_REGULAR_REQUEST, fetchRegularAds),
+    takeLatest(actionTypes.FETCH_AD_REQUEST, fetchAdById),
+  ])
 }

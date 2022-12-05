@@ -23,10 +23,6 @@ function* initApp() {
   yield put({ type: actionTypes.SET_APP_INIT_STATUS, payload: true })
 }
 
-function* watchInitApp() {
-  yield takeEvery(actionTypes.APP_INITIALIZE, initApp)
-}
-
 function* fetchCities() {
   try {
     const data = yield call(apiClient.get, 'fake.api/get_cities')
@@ -37,10 +33,6 @@ function* fetchCities() {
   }
 }
 
-function* watchFetchCities() {
-  yield takeLatest(actionTypes.FETCH_CITIES_REQUEST, fetchCities)
-}
-
 export default function* appSaga() {
-  yield all([watchInitApp(), watchFetchCities()])
+  yield all([takeEvery(actionTypes.APP_INITIALIZE, initApp), takeEvery(actionTypes.FETCH_CITIES_REQUEST, fetchCities)])
 }
