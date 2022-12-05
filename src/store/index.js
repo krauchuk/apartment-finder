@@ -1,10 +1,19 @@
-import { createStore, applyMiddleware, compose } from 'redux'
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 
-import rootReducer from './reducers'
+import ads from './ads'
+import app from './app'
+import filter from './filter'
+
 import rootSaga from '../sagas'
 
-const devtools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+const rootReducer = combineReducers({
+  ads,
+  app,
+  filter,
+})
+
+const devtools = process.env.NODE_ENV !== 'production' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null
 const composeEnhancers = devtools || compose
 
 const sagaMiddleware = createSagaMiddleware()
