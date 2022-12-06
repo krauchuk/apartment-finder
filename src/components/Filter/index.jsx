@@ -24,6 +24,12 @@ const Filter = ({ onSubmit }) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
+    if (!cities || !cities.length) {
+      dispatch({ type: actionTypes.LOAD_CITIES })
+    }
+  }, [])
+
+  useEffect(() => {
     if (!city) {
       setSearchState(old => ({ ...old, city: cities[0] }))
     }
