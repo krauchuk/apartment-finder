@@ -7,13 +7,6 @@ const initState = {
 
 export default function app(state = initState, action) {
   switch (action.type) {
-    case types.LOAD_CITIES:
-      return {
-        ...state,
-        cities: [],
-        loading: true,
-      }
-
     case types.LOAD_CITIES_SUCCESS:
       return {
         ...state,

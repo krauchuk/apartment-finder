@@ -6,14 +6,10 @@ import actionTypes from '@actions'
 
 function* loadAds({ payload }) {
   try {
-    let data = {}
+    const paramsObj = payload.type === 'premium' ? { premium: true } : yield select(state => state.filter)
+    const params = new URLSearchParams(paramsObj)
 
-    if (payload.type === 'premium') {
-      data = yield call(apiClient.get, 'fake.api/get_premium_ads')
-    } else {
-      const params = yield select(state => state.filter)
-      data = yield call(apiClient.get, 'fake.api/get_regular_ads', params)
-    }
+    const data = yield call(apiClient.get, `fake.api/ads?${params.toString()}`)
 
     yield put({ type: actionTypes.LOAD_ADS_SUCCESS, payload: data })
   } catch (e) {
@@ -21,9 +17,9 @@ function* loadAds({ payload }) {
   }
 }
 
-function* loadAd(action) {
+function* loadAd({ payload }) {
   try {
-    const data = yield call(apiClient.get, 'fake.api/get_ad', { id: action.payload })
+    const data = yield call(apiClient.get, `fake.api/ads/${payload.id}`)
 
     yield put({ type: actionTypes.LOAD_AD_SUCCESS, payload: data })
   } catch (e) {

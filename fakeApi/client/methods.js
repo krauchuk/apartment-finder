@@ -10,22 +10,20 @@ export const getPremiumAds = () => {
   return { items, pages: 1, count: items.length }
 }
 
-export const getRegularAds = params => {
+export const getAllAds = params => {
   const { perPage = 6, page = 1, rooms = 0, city, adType = 'rent', minPrice = 0, maxPrice = 0 } = params
 
-  const filtered = ads
-    .filter(ad => !ad.premium)
-    .reduce((acc, ad) => {
-      if (adType && ad.type !== adType) return acc
-      if (city && ad.city !== city) return acc
-      if (rooms && ad.rooms !== rooms) return acc
-      if (minPrice && minPrice > ad.price) return acc
-      if (maxPrice && maxPrice < ad.price) return acc
+  const filtered = ads.reduce((acc, ad) => {
+    if (adType && ad.type !== adType) return acc
+    if (city && ad.city !== city) return acc
+    if (rooms && ad.rooms !== rooms) return acc
+    if (minPrice && minPrice > ad.price) return acc
+    if (maxPrice && maxPrice < ad.price) return acc
 
-      acc.push(ad)
+    acc.push(ad)
 
-      return acc
-    }, [])
+    return acc
+  }, [])
 
   const count = filtered.length
   const pages = Math.ceil(count / perPage)

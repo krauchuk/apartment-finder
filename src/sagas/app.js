@@ -4,9 +4,9 @@ import actionTypes from '@actions'
 
 import apiClient from '@fakeApi/client'
 
-function* fetchCities() {
+function* loadCities() {
   try {
-    const data = yield call(apiClient.get, 'fake.api/get_cities')
+    const data = yield call(apiClient.get, 'fake.api/cities')
 
     yield put({ type: actionTypes.LOAD_CITIES_SUCCESS, payload: data })
   } catch (e) {
@@ -15,5 +15,5 @@ function* fetchCities() {
 }
 
 export default function* appSaga() {
-  yield all([takeEvery(actionTypes.LOAD_CITIES, fetchCities)])
+  yield all([takeEvery(actionTypes.LOAD_CITIES, loadCities)])
 }

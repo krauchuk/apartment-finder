@@ -37,7 +37,7 @@ const AdPage = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch({ type: actionTypes.LOAD_AD, payload: +id })
+    dispatch({ type: actionTypes.LOAD_AD, payload: { id } })
   }, [dispatch, id])
 
   if (loading)
