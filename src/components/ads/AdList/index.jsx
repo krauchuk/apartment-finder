@@ -5,7 +5,7 @@ import Spinner from '@components/common/Spinner'
 
 import { Wrapper, Title, Grid } from './styles'
 
-const AdList = ({ items, loading, title }) => {
+const AdList = ({ items, loading, title, highlightPremium }) => {
   return (
     <Wrapper>
       {title && <Title>{title}</Title>}
@@ -14,7 +14,7 @@ const AdList = ({ items, loading, title }) => {
       ) : (
         <Grid>
           {items.map(ad => (
-            <AdPreview key={ad.id} data={ad} />
+            <AdPreview key={ad.id} data={ad} highlightPremium={highlightPremium} />
           ))}
         </Grid>
       )}

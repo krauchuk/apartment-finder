@@ -5,13 +5,13 @@ import Image from '@components/common/Image'
 
 import { Wrapper, AdDate, InfoBlock, AdName, AdPrice, SizeBlock, AdRooms, AdSquare, AdAddress } from './styles'
 
-const AdPreview = ({ data }) => {
+const AdPreview = ({ data, highlightPremium }) => {
   const navigate = useNavigate()
 
   const onClickHandler = () => navigate(`/ad/${data.id}`)
 
   return (
-    <Wrapper onClick={onClickHandler}>
+    <Wrapper onClick={onClickHandler} premium={highlightPremium && data.premium}>
       <AdDate>{data.date}</AdDate>
       <Image src={data.images[0]} />
       <InfoBlock>

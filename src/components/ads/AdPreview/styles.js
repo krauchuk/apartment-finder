@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   overflow: hidden;
   position: relative;
   cursor: pointer;
+  background: ${props => (props.premium ? '#fff563' : 'white')};
 `
 
 export const AdDate = styled.span`

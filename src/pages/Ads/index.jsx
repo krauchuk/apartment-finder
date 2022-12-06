@@ -29,7 +29,7 @@ const AdsPage = () => {
       <SearchWrapper>
         <Filter />
       </SearchWrapper>
-      <AdList items={items} loading={loading} />
+      <AdList items={items} loading={loading} highlightPremium />
       <Pagination />
     </Layout>
   )
