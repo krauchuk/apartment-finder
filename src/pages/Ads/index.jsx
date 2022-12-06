@@ -5,6 +5,7 @@ import { useSearchParams } from 'react-router-dom'
 import Filter from '@components/Filter'
 import AdList from '@components/ads/AdList'
 import Pagination from '@components/Pagination'
+import Layout from '@components/Layout'
 
 import actionTypes from '@actions'
 
@@ -24,13 +25,13 @@ const AdsPage = () => {
   }, [dispatch, setSearchParams, filter])
 
   return (
-    <>
+    <Layout>
       <SearchWrapper>
         <Filter />
       </SearchWrapper>
       <AdList items={items} loading={loading} />
       <Pagination />
-    </>
+    </Layout>
   )
 }
 

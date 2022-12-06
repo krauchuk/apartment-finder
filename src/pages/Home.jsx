@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import HeroImage from '@components/HeroImage'
 import Filter from '@components/Filter'
 import AdList from '@components/ads/AdList'
+import Layout from '@components/Layout'
 
 import actionTypes from '@actions'
 
@@ -22,12 +23,12 @@ const HomePage = () => {
   }
 
   return (
-    <>
+    <Layout>
       <HeroImage>
         <Filter onSubmit={searchHandler} />
       </HeroImage>
       <AdList items={items} loading={loading} title="Premium Ads" />
-    </>
+    </Layout>
   )
 }
 

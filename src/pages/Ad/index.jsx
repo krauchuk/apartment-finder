@@ -7,6 +7,7 @@ import actionTypes from '@actions'
 import Spinner from '@components/common/Spinner'
 import Carousel from '@components/common/Carousel'
 import Breadcrumbs from '@components/ads/Breadcrumbs'
+import Layout from '@components/Layout'
 
 import {
   Wrapper,
@@ -42,37 +43,41 @@ const AdPage = () => {
 
   if (loading)
     return (
-      <Wrapper>
-        <Spinner />
-      </Wrapper>
+      <Layout>
+        <Wrapper>
+          <Spinner />
+        </Wrapper>
+      </Layout>
     )
 
   return (
-    <Wrapper>
-      <Breadcrumbs ad={data} />
-      <Carousel images={data.images} />
-      <AdHeader>
-        <AdName>{data.name}</AdName>
-        <AdPrice>${data.price}</AdPrice>
-        <AdAddress>
-          {data.city}, {data.address}
-        </AdAddress>
-      </AdHeader>
-      <MainInfo>
-        <MainInfoBlock>
-          <Row title="Rooms" info={data.rooms} />
-          <Row title="Square" info={data.square}>
-            m<sup>2</sup>
-          </Row>
-          <Row title="Floor" info={data.floor} />
-        </MainInfoBlock>
-        <MainInfoBlock>
-          <Row title="Construction year" info={data.constructionYear} />
-          <Row title="Wall material" info={data.wallMaterial} />
-        </MainInfoBlock>
-      </MainInfo>
-      <Description>{data.desc}</Description>
-    </Wrapper>
+    <Layout>
+      <Wrapper>
+        <Breadcrumbs ad={data} />
+        <Carousel images={data.images} />
+        <AdHeader>
+          <AdName>{data.name}</AdName>
+          <AdPrice>${data.price}</AdPrice>
+          <AdAddress>
+            {data.city}, {data.address}
+          </AdAddress>
+        </AdHeader>
+        <MainInfo>
+          <MainInfoBlock>
+            <Row title="Rooms" info={data.rooms} />
+            <Row title="Square" info={data.square}>
+              m<sup>2</sup>
+            </Row>
+            <Row title="Floor" info={data.floor} />
+          </MainInfoBlock>
+          <MainInfoBlock>
+            <Row title="Construction year" info={data.constructionYear} />
+            <Row title="Wall material" info={data.wallMaterial} />
+          </MainInfoBlock>
+        </MainInfo>
+        <Description>{data.desc}</Description>
+      </Wrapper>
+    </Layout>
   )
 }
 
