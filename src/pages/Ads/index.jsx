@@ -19,7 +19,7 @@ const AdsPage = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch({ type: actionTypes.FETCH_REGULAR_REQUEST })
+    dispatch({ type: actionTypes.LOAD_ADS, payload: { type: 'all' } })
     setSearchParams(filter)
   }, [dispatch, setSearchParams, filter])
 

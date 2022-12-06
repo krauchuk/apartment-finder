@@ -10,47 +10,43 @@ const initState = {
 
 export default function ads(state = initState, action) {
   switch (action.type) {
-    case types.FETCH_PREMIUM_REQUEST:
-    case types.FETCH_REGULAR_REQUEST:
+    case types.LOAD_ADS:
       return {
         ...state,
         items: [],
         pages: 0,
+        count: 0,
         loading: true,
       }
 
-    case types.FETCH_PREMIUM_SUCCESS:
-    case types.FETCH_REGULAR_SUCCESS:
+    case types.LOAD_ADS_SUCCESS:
       return {
         ...state,
-        items: action.payload.items,
-        pages: action.payload.pages,
-        count: action.payload.count,
+        ...action.payload,
         loading: false,
       }
 
-    case types.FETCH_PREMIUM_FAILURE:
-    case types.FETCH_REGULAR_FAILURE:
+    case types.LOAD_ADS_FAILURE:
       return {
         ...state,
         loading: false,
       }
 
-    case types.FETCH_AD_REQUEST:
+    case types.LOAD_AD:
       return {
         ...state,
         selected: {},
         loading: true,
       }
 
-    case types.FETCH_AD_SUCCESS:
+    case types.LOAD_AD_SUCCESS:
       return {
         ...state,
         selected: action.payload,
         loading: false,
       }
 
-    case types.FETCH_AD_FAILURE:
+    case types.LOAD_AD_FAILURE:
       return {
         ...state,
         loading: false,

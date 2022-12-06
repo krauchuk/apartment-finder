@@ -14,7 +14,7 @@ const HomePage = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  useEffect(() => dispatch({ type: actionTypes.FETCH_PREMIUM_REQUEST }), [dispatch])
+  useEffect(() => dispatch({ type: actionTypes.LOAD_ADS, payload: { type: 'premium' } }), [dispatch])
 
   const searchHandler = () => {
     dispatch({ type: actionTypes.UPDATE_FILTER, payload: { page: 1 } })

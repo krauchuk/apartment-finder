@@ -29,7 +29,7 @@ const App = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch({ type: actionTypes.FETCH_CITIES_REQUEST })
+    dispatch({ type: actionTypes.LOAD_CITIES })
   }, [dispatch])
 
   return (

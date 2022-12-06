@@ -8,12 +8,12 @@ function* fetchCities() {
   try {
     const data = yield call(apiClient.get, 'fake.api/get_cities')
 
-    yield put({ type: actionTypes.FETCH_CITIES_SUCCESS, payload: data })
+    yield put({ type: actionTypes.LOAD_CITIES_SUCCESS, payload: data })
   } catch (e) {
-    yield put({ type: actionTypes.FETCH_CITIES_FAILURE })
+    yield put({ type: actionTypes.LOAD_CITIES_FAILURE })
   }
 }
 
 export default function* appSaga() {
-  yield all([takeEvery(actionTypes.FETCH_CITIES_REQUEST, fetchCities)])
+  yield all([takeEvery(actionTypes.LOAD_CITIES, fetchCities)])
 }
