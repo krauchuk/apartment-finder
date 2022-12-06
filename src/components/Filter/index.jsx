@@ -11,7 +11,7 @@ import { Form, Fieldset, FieldsetLegend, ButtonWrapper } from './styles'
 
 const Filter = ({ onSubmit }) => {
   const { adType, city, minPrice, maxPrice, rooms } = useSelector(state => state.filter)
-  const { loading, cities } = useSelector(state => state.app)
+  const { citiesLoading, cities } = useSelector(state => state.app)
 
   const [searchState, setSearchState] = useState({
     adType,
@@ -62,7 +62,7 @@ const Filter = ({ onSubmit }) => {
           options={cities.map(c => ({ value: c, text: c }))}
           value={searchState.city}
           onChange={inputHandler}
-          disabled={loading}
+          disabled={citiesLoading}
         />
       </Fieldset>
       <Fieldset>
@@ -83,7 +83,7 @@ const Filter = ({ onSubmit }) => {
         />
       </Fieldset>
       <ButtonWrapper>
-        <Button type="submit" text="Find" disabled={loading} />
+        <Button type="submit" text="Find" disabled={citiesLoading} />
       </ButtonWrapper>
     </Form>
   )

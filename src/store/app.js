@@ -2,7 +2,7 @@ import types from '@actions'
 
 const initState = {
   cities: [],
-  loading: true,
+  citiesLoading: true,
 }
 
 export default function app(state = initState, action) {
@@ -11,13 +11,13 @@ export default function app(state = initState, action) {
       return {
         ...state,
         cities: action.payload,
-        loading: false,
+        citiesLoading: false,
       }
 
     case types.LOAD_CITIES_FAILURE:
       return {
         ...state,
-        loading: false,
+        citiesLoading: false,
       }
 
     default:
