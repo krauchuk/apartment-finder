@@ -18,10 +18,12 @@ const getMethod = url => {
     const urlForSearch = new URL(`http://${url}`)
     const searchParams = new URLSearchParams(urlForSearch.search)
 
+    const rooms = searchParams.get('rooms')
+
     const params = {
       perPage: +searchParams.get('perPage'),
       page: +searchParams.get('page'),
-      rooms: +searchParams.get('rooms'),
+      rooms: rooms === '5+' ? '5+' : +searchParams.get('rooms'),
       minPrice: +searchParams.get('minPrice'),
       maxPrice: +searchParams.get('maxPrice'),
       city: searchParams.get('city'),

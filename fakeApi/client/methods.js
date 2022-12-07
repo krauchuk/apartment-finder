@@ -16,9 +16,13 @@ export const getAllAds = params => {
   const filtered = ads.reduce((acc, ad) => {
     if (adType && ad.type !== adType) return acc
     if (city && ad.city !== city) return acc
-    if (rooms && ad.rooms !== rooms) return acc
     if (minPrice && minPrice > ad.price) return acc
     if (maxPrice && maxPrice < ad.price) return acc
+    if (rooms === '5+') {
+      if (ad.rooms < 6) return acc
+    } else if (rooms && ad.rooms !== rooms) {
+      return acc
+    }
 
     acc.push(ad)
 

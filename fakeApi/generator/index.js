@@ -8,7 +8,7 @@ export default count => {
   for (let i = 0; i < count; i += 1) {
     const type = getRandomItem(types)
     const basePrice = getRandomNumber(100, 1000)
-    const rooms = getRandomItem([1, 2, 3, 4])
+    const rooms = getRandomItem([1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7])
     const city = getRandomItem(cities)
 
     ads.push({

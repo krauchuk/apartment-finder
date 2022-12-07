@@ -4,12 +4,14 @@ const { search, href } = window.location
 const searchParams = new URLSearchParams(search)
 const initPage = href === '/' ? 1 : searchParams.get('page')
 
+const rooms = searchParams.get('rooms')
+
 const initState = {
   adType: searchParams.get('adType') || 'rent',
   city: searchParams.get('city') || '',
   minPrice: +(searchParams.get('minPrice') || 0),
   maxPrice: +(searchParams.get('maxPrice') || 0),
-  rooms: +(searchParams.get('rooms') || 0),
+  rooms: rooms === '5+' ? rooms : +(searchParams.get('rooms') || 0),
   perPage: +(searchParams.get('perPage') || 6),
   page: +(initPage || 1),
 }

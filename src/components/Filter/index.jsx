@@ -82,6 +82,20 @@ const Filter = ({ onSubmit }) => {
           onChange={inputHandler}
         />
       </Fieldset>
+      <Fieldset>
+        <FieldsetLegend>Rooms</FieldsetLegend>
+        <Select
+          name="rooms"
+          options={[
+            { value: 0, text: 'any' },
+            ...[1, 2, 3, 4, 5].map(r => ({ value: r, text: r })),
+            { value: '5+', text: '5+' },
+          ]}
+          value={searchState.rooms}
+          onChange={inputHandler}
+          disabled={citiesLoading}
+        />
+      </Fieldset>
       <ButtonWrapper>
         <Button type="submit" text="Find" disabled={citiesLoading} />
       </ButtonWrapper>
