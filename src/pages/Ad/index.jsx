@@ -2,13 +2,11 @@ import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
-import actionTypes from '@actions'
-
-import Spinner from '@components/common/Spinner'
-import Carousel from '@components/common/Carousel'
-import Breadcrumbs from '@components/ads/Breadcrumbs'
-import Layout from '@components/Layout'
-
+import Spinner from '../../components/common/Spinner'
+import Carousel from '../../components/common/Carousel'
+import Breadcrumbs from '../../components/ads/Breadcrumbs'
+import Layout from '../../components/Layout'
+import actionTypes from '../../actions'
 import {
   Wrapper,
   AdHeader,

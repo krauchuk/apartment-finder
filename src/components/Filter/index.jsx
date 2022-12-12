@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import Select from '@components/common/Select'
-import Input from '@components/common/Input'
-import Button from '@components/common/Button'
-
-import actionTypes from '@actions'
-
+import Select from '../common/Select'
+import Input from '../common/Input'
+import Button from '../common/Button'
+import actionTypes from '../../actions'
 import { Form, Fieldset, FieldsetLegend, ButtonWrapper } from './styles'
 
 const Filter = ({ onSubmit }) => {

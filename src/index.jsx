@@ -10,7 +10,6 @@ import Ads from './pages/Ads'
 import Ad from './pages/Ad'
 import Contact from './pages/ContactUs'
 import NotFound from './pages/NotFound'
-
 import store from './store'
 import history from './history'
 

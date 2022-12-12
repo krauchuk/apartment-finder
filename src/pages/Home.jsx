@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import HeroImage from '@components/HeroImage'
-import Filter from '@components/Filter'
-import AdList from '@components/ads/AdList'
-import Layout from '@components/Layout'
-
-import actionTypes from '@actions'
+import HeroImage from '../components/HeroImage'
+import Filter from '../components/Filter'
+import AdList from '../components/ads/AdList'
+import Layout from '../components/Layout'
+import actionTypes from '../actions'
 import history from '../history'
 
 const HomePage = () => {

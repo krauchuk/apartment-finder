@@ -1,4 +1,4 @@
-import types from '@actions'
+import types from '../actions'
 import history from '../history'
 
 const isRoot = history.location.pathname === '/'

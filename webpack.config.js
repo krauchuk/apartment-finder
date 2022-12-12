@@ -10,11 +10,6 @@ const webpackConfig = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
-    alias: {
-      '@actions': path.resolve(__dirname, 'src/actions'),
-      '@components': path.resolve(__dirname, 'src/components'),
-      '@fakeApi': path.resolve(__dirname, 'fakeApi'),
-    },
   },
   module: {
     rules: [

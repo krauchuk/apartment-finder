@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import Filter from '@components/Filter'
-import AdList from '@components/ads/AdList'
-import Pagination from '@components/Pagination'
-import Layout from '@components/Layout'
-
-import actionTypes from '@actions'
+import Filter from '../../components/Filter'
+import AdList from '../../components/ads/AdList'
+import Pagination from '../../components/Pagination'
+import Layout from '../../components/Layout'
+import actionTypes from '../../actions'
 import history from '../../history'
-
 import { SearchWrapper } from './styles'
 
 const AdsPage = () => {

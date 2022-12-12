@@ -1,10 +1,8 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import Button from '@components/common/Button'
-
-import actionTypes from '@actions'
-
+import Button from '../common/Button'
+import actionTypes from '../../actions'
 import { Wrapper } from './styles'
 
 const Pagination = () => {

@@ -1,8 +1,7 @@
 import { put, takeEvery, call, all } from 'redux-saga/effects'
 
-import actionTypes from '@actions'
-
-import apiClient from '@fakeApi/client'
+import apiClient from '../../fakeApi/client'
+import actionTypes from '../actions'
 
 function* loadCities() {
   try {

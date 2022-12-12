@@ -4,7 +4,6 @@ import createSagaMiddleware from 'redux-saga'
 import ads from './ads'
 import app from './app'
 import filter from './filter'
-
 import rootSaga from '../sagas'
 
 const rootReducer = combineReducers({

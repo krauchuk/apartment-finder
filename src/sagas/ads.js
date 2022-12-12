@@ -1,7 +1,7 @@
 import { select, call, put, takeLatest, all } from 'redux-saga/effects'
 
-import apiClient from '@fakeApi/client'
-import actionTypes from '@actions'
+import apiClient from '../../fakeApi/client'
+import actionTypes from '../actions'
 import history from '../history'
 
 function* loadAds({ payload }) {
