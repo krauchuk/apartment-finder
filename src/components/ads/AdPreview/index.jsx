@@ -1,14 +1,12 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 
 import Image from '@components/common/Image'
 
+import history from '../../../history'
 import { Wrapper, AdDate, InfoBlock, AdName, AdPrice, SizeBlock, AdRooms, AdSquare, AdAddress } from './styles'
 
 const AdPreview = ({ data, highlightPremium }) => {
-  const navigate = useNavigate()
-
-  const onClickHandler = () => navigate(`/ad/${data.id}`)
+  const onClickHandler = () => history.push(`/ad/${data.id}`)
 
   return (
     <Wrapper onClick={onClickHandler} premium={highlightPremium && data.premium}>

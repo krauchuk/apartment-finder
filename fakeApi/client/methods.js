@@ -2,7 +2,13 @@ import { getData } from './data'
 
 const { ads, cities } = getData()
 
-export const getAdById = ({ id }) => ads.find(ad => ad.id === id) || {}
+export const getAdById = ({ id }) => {
+  const ad = ads.find(a => a.id === id)
+
+  if (!ad) throw new Error('Ad not found', { cause: 404 })
+
+  return ad
+}
 
 export const getPremiumAds = () => {
   const items = ads.filter(ad => ad.premium)

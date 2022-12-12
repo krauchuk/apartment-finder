@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Router, Switch, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { createGlobalStyle } from 'styled-components'
 
@@ -9,8 +9,10 @@ import FAQ from './pages/FAQ'
 import Ads from './pages/Ads'
 import Ad from './pages/Ad'
 import Contact from './pages/ContactUs'
+import NotFound from './pages/NotFound'
 
 import store from './store'
+import history from './history'
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -24,15 +26,17 @@ const GlobalStyles = createGlobalStyle`
 ReactDom.render(
   <Provider store={store}>
     <GlobalStyles />
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/faq" element={<FAQ />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/ads" element={<Ads />} />
-        <Route path="/ad/:id" element={<Ad />} />
-      </Routes>
-    </BrowserRouter>
+    <Router history={history}>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/faq" component={FAQ} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/ads" component={Ads} />
+        <Route path="/ad/:id" component={Ad} />
+        <Route path="/404" component={NotFound} />
+        <Route component={NotFound} />
+      </Switch>
+    </Router>
   </Provider>,
-  document.getElementById('app')
+  document.getElementById('app'),
 )

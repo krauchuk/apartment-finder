@@ -1,8 +1,8 @@
 import { select, call, put, takeLatest, all } from 'redux-saga/effects'
 
 import apiClient from '@fakeApi/client'
-
 import actionTypes from '@actions'
+import history from '../history'
 
 function* loadAds({ payload }) {
   try {
@@ -23,6 +23,10 @@ function* loadAd({ payload }) {
 
     yield put({ type: actionTypes.LOAD_AD_SUCCESS, payload: data })
   } catch (e) {
+    if (e.cause === 404) {
+      history.push('/404')
+    }
+
     yield put({ type: actionTypes.LOAD_AD_FAILURE })
   }
 }

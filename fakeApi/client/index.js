@@ -38,10 +38,16 @@ const getMethod = url => {
 
 export default {
   get: url =>
-    new Promise(resolve => {
+    new Promise((resolve, reject) => {
       const method = getMethod(url)
-      if (!method) throw new Error('Wrong URL')
+      if (!method) reject(new Error('Wrong URL'))
 
-      setTimeout(() => resolve(method()), Math.random() * 1500)
+      setTimeout(() => {
+        try {
+          resolve(method())
+        } catch (e) {
+          reject(e)
+        }
+      }, Math.random() * 1500)
     }),
 }
