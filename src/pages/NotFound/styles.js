@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.div`
+export const InfoBlock = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

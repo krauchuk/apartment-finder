@@ -2,13 +2,11 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 
 import ads from './ads'
-import app from './app'
 import filter from './filter'
 import rootSaga from '../sagas'
 
 const rootReducer = combineReducers({
   ads,
-  app,
   filter,
 })
 

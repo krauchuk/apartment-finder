@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.div`
+export const AdBlock = styled.div`
   max-width: 1000px;
   margin: auto;
   padding: 16px;

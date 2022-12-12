@@ -13,6 +13,6 @@ function* loadCities() {
   }
 }
 
-export default function* appSaga() {
+export default function* filterSaga() {
   yield all([takeEvery(actionTypes.LOAD_CITIES, loadCities)])
 }

@@ -1,8 +1,8 @@
 import { all } from 'redux-saga/effects'
 
 import adsSaga from './ads'
-import appSaga from './app'
+import filterSaga from './filter'
 
 export default function* rootSaga() {
-  yield all([adsSaga(), appSaga()])
+  yield all([adsSaga(), filterSaga()])
 }

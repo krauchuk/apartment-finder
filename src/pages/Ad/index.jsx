@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import Spinner from '../../components/common/Spinner'
 import Carousel from '../../components/common/Carousel'
-import Breadcrumbs from '../../components/ads/Breadcrumbs'
+import Breadcrumbs from '../../components/Breadcrumbs'
 import Layout from '../../components/Layout'
 import actionTypes from '../../actions'
 import {
-  Wrapper,
+  AdBlock,
   AdHeader,
   AdName,
   AdAddress,
@@ -42,15 +42,15 @@ const AdPage = () => {
   if (loading)
     return (
       <Layout>
-        <Wrapper>
+        <AdBlock>
           <Spinner />
-        </Wrapper>
+        </AdBlock>
       </Layout>
     )
 
   return (
     <Layout>
-      <Wrapper>
+      <AdBlock>
         <Breadcrumbs ad={data} />
         <Carousel images={data.images} />
         <AdHeader>
@@ -74,7 +74,7 @@ const AdPage = () => {
           </MainInfoBlock>
         </MainInfo>
         <Description>{data.desc}</Description>
-      </Wrapper>
+      </AdBlock>
     </Layout>
   )
 }

@@ -1,8 +1,8 @@
 import types from '../actions'
 import history from '../history'
 
-const isRoot = history.location.pathname === '/'
-const searchParams = new URLSearchParams(isRoot ? '' : window.location.search)
+const isAdsPage = history.location.pathname === '/ads'
+const searchParams = new URLSearchParams(isAdsPage ? window.location.search : '')
 const rooms = searchParams.get('rooms')
 
 const initState = {
@@ -13,6 +13,20 @@ const initState = {
   rooms: rooms === '5+' ? rooms : +(searchParams.get('rooms') || 0),
   perPage: +(searchParams.get('perPage') || 6),
   page: +(searchParams.get('page') || 1),
+  cities: [],
+  loading: true,
+}
+
+export const searchParamsSelector = state => {
+  return {
+    adType: state.filter.adType,
+    city: state.filter.city,
+    minPrice: state.filter.minPrice,
+    maxPrice: state.filter.maxPrice,
+    rooms: state.filter.rooms,
+    perPage: state.filter.perPage,
+    page: state.filter.page,
+  }
 }
 
 export default function filter(state = initState, action) {
@@ -21,6 +35,19 @@ export default function filter(state = initState, action) {
       return {
         ...state,
         ...action.payload,
+      }
+
+    case types.LOAD_CITIES_SUCCESS:
+      return {
+        ...state,
+        cities: action.payload,
+        loading: false,
+      }
+
+    case types.LOAD_CITIES_FAILURE:
+      return {
+        ...state,
+        loading: false,
       }
 
     default:

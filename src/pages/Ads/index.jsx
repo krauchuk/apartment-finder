@@ -1,17 +1,18 @@
 import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch, shallowEqual } from 'react-redux'
 
 import Filter from '../../components/Filter'
-import AdList from '../../components/ads/AdList'
+import AdList from '../../components/AdList'
 import Pagination from '../../components/Pagination'
 import Layout from '../../components/Layout'
 import actionTypes from '../../actions'
 import history from '../../history'
-import { SearchWrapper } from './styles'
+import { searchParamsSelector } from '../../store/filter'
+import { FilterWrapper } from './styles'
 
 const AdsPage = () => {
   const { items, loading } = useSelector(state => state.ads)
-  const filter = useSelector(state => state.filter)
+  const filter = useSelector(searchParamsSelector, shallowEqual)
 
   const dispatch = useDispatch()
 
@@ -23,9 +24,9 @@ const AdsPage = () => {
 
   return (
     <Layout>
-      <SearchWrapper>
+      <FilterWrapper>
         <Filter />
-      </SearchWrapper>
+      </FilterWrapper>
       <AdList items={items} loading={loading} highlightPremium />
       <Pagination />
     </Layout>

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import HeroImage from '../components/HeroImage'
 import Filter from '../components/Filter'
-import AdList from '../components/ads/AdList'
+import AdList from '../components/AdList'
 import Layout from '../components/Layout'
 import actionTypes from '../actions'
 import history from '../history'

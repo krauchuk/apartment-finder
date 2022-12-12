@@ -3,10 +3,11 @@ import { select, call, put, takeLatest, all } from 'redux-saga/effects'
 import apiClient from '../../fakeApi/client'
 import actionTypes from '../actions'
 import history from '../history'
+import { searchParamsSelector } from '../store/filter'
 
 function* loadAds({ payload }) {
   try {
-    const paramsObj = payload.type === 'premium' ? { premium: true } : yield select(state => state.filter)
+    const paramsObj = payload.type === 'premium' ? { premium: true } : yield select(searchParamsSelector)
     const params = new URLSearchParams(paramsObj)
 
     const data = yield call(apiClient.get, `fake.api/ads?${params.toString()}`)
