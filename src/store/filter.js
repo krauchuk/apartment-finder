@@ -1,9 +1,8 @@
 import types from '@actions'
+import history from '../history'
 
-const { search, href } = window.location
-const searchParams = new URLSearchParams(search)
-const initPage = href === '/' ? 1 : searchParams.get('page')
-
+const isRoot = history.location.pathname === '/'
+const searchParams = new URLSearchParams(isRoot ? '' : window.location.search)
 const rooms = searchParams.get('rooms')
 
 const initState = {
@@ -13,7 +12,7 @@ const initState = {
   maxPrice: +(searchParams.get('maxPrice') || 0),
   rooms: rooms === '5+' ? rooms : +(searchParams.get('rooms') || 0),
   perPage: +(searchParams.get('perPage') || 6),
-  page: +(initPage || 1),
+  page: +(searchParams.get('page') || 1),
 }
 
 export default function filter(state = initState, action) {

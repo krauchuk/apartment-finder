@@ -15,10 +15,7 @@ const HomePage = () => {
   const dispatch = useDispatch()
   useEffect(() => dispatch({ type: actionTypes.LOAD_ADS, payload: { type: 'premium' } }), [dispatch])
 
-  const searchHandler = () => {
-    dispatch({ type: actionTypes.UPDATE_FILTER, payload: { page: 1 } })
-    history.push(`/ads${window.location.search}`)
-  }
+  const searchHandler = () => history.push(`/ads${window.location.search}`)
 
   return (
     <Layout>
