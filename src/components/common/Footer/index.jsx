@@ -9,14 +9,13 @@ const Footer = () => {
     <Wrapper>
       <Column>
         <ColumnTitle>About</ColumnTitle>
-        <ColumnLink>Sitemap</ColumnLink>
-        <ColumnLink>Contact Us</ColumnLink>
-        <ColumnLink>FAQ</ColumnLink>
+        <ColumnLink to="/contact">Contact Us</ColumnLink>
+        <ColumnLink to="/faq">FAQ</ColumnLink>
       </Column>
       <Column>
         <ColumnTitle>Services</ColumnTitle>
-        <ColumnLink>Realtors</ColumnLink>
-        <ColumnLink>Apartment check</ColumnLink>
+        <ColumnLink to="/realtors">Realtors</ColumnLink>
+        <ColumnLink to="/check">Apartment check</ColumnLink>
       </Column>
       <Copyrights>Site design / logo © {year} My Company Inc</Copyrights>
     </Wrapper>
