@@ -13,6 +13,7 @@ const initState = {
   rooms: rooms === '5+' ? rooms : +(searchParams.get('rooms') || 0),
   perPage: +(searchParams.get('perPage') || 6),
   page: +(searchParams.get('page') || 1),
+  sort: searchParams.get('sort') || 'date_asc',
   cities: [],
   loading: true,
 }
@@ -26,6 +27,7 @@ export const searchParamsSelector = state => {
     rooms: state.filter.rooms,
     perPage: state.filter.perPage,
     page: state.filter.page,
+    sort: state.filter.sort,
   }
 }
 
