@@ -23,3 +23,8 @@ export const SelectorTitle = styled.span`
   white-space: nowrap;
   margin-right: 4px;
 `
+
+export const PageSeparator = styled.span`
+  font-size: 14px;
+  padding: 8px;
+`
