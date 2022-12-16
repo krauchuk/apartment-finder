@@ -28,6 +28,7 @@ const getMethod = url => {
       maxPrice: +searchParams.get('maxPrice'),
       city: searchParams.get('city'),
       adType: searchParams.get('adType'),
+      sort: searchParams.get('sort'),
     }
 
     return () => getAllAds(params)

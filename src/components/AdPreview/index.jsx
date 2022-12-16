@@ -9,7 +9,7 @@ const AdPreview = ({ data, highlightPremium }) => {
 
   return (
     <Wrapper onClick={onClickHandler} premium={highlightPremium && data.premium}>
-      <AdDate>{data.date}</AdDate>
+      <AdDate>{new Date(data.date).toLocaleDateString('en-US')}</AdDate>
       <Image src={data.images[0]} />
       <InfoBlock>
         <AdName>{data.name}</AdName>

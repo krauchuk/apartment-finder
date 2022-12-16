@@ -5,7 +5,7 @@ import Select from './common/Select'
 import actionTypes from '../actions'
 
 const Sorter = () => {
-  const { field, order } = useSelector(state => state.filter.sort)
+  const sort = useSelector(state => state.filter.sort)
 
   const dispatch = useDispatch()
 
@@ -19,7 +19,7 @@ const Sorter = () => {
         { value: 'price_asc', text: 'Prices: low first' },
         { value: 'price_desc', text: 'Prices: high first' },
       ]}
-      value={`${field}_${order}`}
+      value={sort}
       onChange={onChange}
     />
   )

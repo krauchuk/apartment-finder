@@ -18,9 +18,7 @@ const AdsPage = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (filter.page !== 1) {
-      dispatch({ type: actionTypes.UPDATE_FILTER, payload: { page: 1 } })
-    }
+    return () => dispatch({ type: actionTypes.UPDATE_FILTER, payload: { page: 1, sort: 'date_asc' } })
   }, [])
 
   useEffect(() => {
