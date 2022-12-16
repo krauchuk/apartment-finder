@@ -14,6 +14,8 @@ const initState = {
   perPage: +(searchParams.get('perPage') || 6),
   page: +(searchParams.get('page') || 1),
   sort: searchParams.get('sort') || 'date_asc',
+  minSquare: +(searchParams.get('minSquare') || 0),
+  maxSquare: +(searchParams.get('maxSquare') || 0),
   cities: [],
   loading: true,
 }
@@ -28,6 +30,8 @@ export const searchParamsSelector = state => {
     perPage: state.filter.perPage,
     page: state.filter.page,
     sort: state.filter.sort,
+    minSquare: state.filter.minSquare,
+    maxSquare: state.filter.maxSquare,
   }
 }
 

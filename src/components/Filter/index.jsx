@@ -8,7 +8,9 @@ import actionTypes from '../../actions'
 import { Form, Fieldset, FieldsetLegend, ButtonWrapper } from './styles'
 
 const Filter = ({ onSubmit }) => {
-  const { adType, city, minPrice, maxPrice, rooms, cities, loading } = useSelector(state => state.filter)
+  const { adType, city, minPrice, maxPrice, rooms, minSquare, maxSquare, cities, loading } = useSelector(
+    state => state.filter,
+  )
 
   const [searchState, setSearchState] = useState({
     adType,
@@ -16,6 +18,8 @@ const Filter = ({ onSubmit }) => {
     minPrice,
     maxPrice,
     rooms,
+    minSquare,
+    maxSquare,
   })
 
   const dispatch = useDispatch()
@@ -91,6 +95,23 @@ const Filter = ({ onSubmit }) => {
           value={searchState.rooms}
           onChange={inputHandler}
           disabled={loading}
+        />
+      </Fieldset>
+      <Fieldset>
+        <FieldsetLegend>Square</FieldsetLegend>
+        <Input
+          value={searchState.minSquare}
+          name="minSquare"
+          type="number"
+          placeholder="min square"
+          onChange={inputHandler}
+        />
+        <Input
+          value={searchState.maxSquare}
+          name="maxSquare"
+          type="number"
+          placeholder="max square"
+          onChange={inputHandler}
         />
       </Fieldset>
       <ButtonWrapper>

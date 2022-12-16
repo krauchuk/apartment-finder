@@ -29,6 +29,8 @@ const getMethod = url => {
       city: searchParams.get('city'),
       adType: searchParams.get('adType'),
       sort: searchParams.get('sort'),
+      minSquare: +searchParams.get('minSquare'),
+      maxSquare: +searchParams.get('maxSquare'),
     }
 
     return () => getAllAds(params)

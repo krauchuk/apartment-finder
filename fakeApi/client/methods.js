@@ -26,6 +26,8 @@ export const getAllAds = params => {
     minPrice = 0,
     maxPrice = 0,
     sort = 'date_asc',
+    minSquare = 0,
+    maxSquare = 0,
   } = params
 
   const [sortField, sortOrder] = sort.split('_')
@@ -42,6 +44,8 @@ export const getAllAds = params => {
       if (city && ad.city !== city) return acc
       if (minPrice && minPrice > ad.price) return acc
       if (maxPrice && maxPrice < ad.price) return acc
+      if (minSquare && minSquare > ad.square) return acc
+      if (maxSquare && maxSquare < ad.square) return acc
       if (rooms === '5+') {
         if (ad.rooms < 6) return acc
       } else if (rooms && ad.rooms !== rooms) {
