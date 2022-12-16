@@ -9,13 +9,19 @@ import Layout from '../../components/Layout'
 import actionTypes from '../../actions'
 import history from '../../history'
 import { searchParamsSelector } from '../../store/filter'
-import { FilterWrapper, SorterWrapper } from './styles'
+import { FilterWrapper, AdsCounter, TopPanel } from './styles'
 
 const AdsPage = () => {
-  const { items, loading } = useSelector(state => state.ads)
+  const { items, loading, count } = useSelector(state => state.ads)
   const filter = useSelector(searchParamsSelector, shallowEqual)
 
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (filter.page !== 1) {
+      dispatch({ type: actionTypes.UPDATE_FILTER, payload: { page: 1 } })
+    }
+  }, [])
 
   useEffect(() => {
     dispatch({ type: actionTypes.LOAD_ADS, payload: { type: 'all' } })
@@ -28,9 +34,14 @@ const AdsPage = () => {
       <FilterWrapper>
         <Filter />
       </FilterWrapper>
-      <SorterWrapper>
+      <TopPanel>
+        {!!count && (
+          <AdsCounter>
+            <strong>{count}</strong> ads found
+          </AdsCounter>
+        )}
         <Sorter />
-      </SorterWrapper>
+      </TopPanel>
       <AdList items={items} loading={loading} highlightPremium />
       <Pagination />
     </Layout>

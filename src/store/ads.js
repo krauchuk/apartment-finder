@@ -15,7 +15,6 @@ export default function ads(state = initState, action) {
         ...state,
         items: [],
         pages: 0,
-        count: 0,
         loading: true,
       }
 
@@ -29,6 +28,7 @@ export default function ads(state = initState, action) {
     case types.LOAD_ADS_FAILURE:
       return {
         ...state,
+        count: 0,
         loading: false,
       }
 
