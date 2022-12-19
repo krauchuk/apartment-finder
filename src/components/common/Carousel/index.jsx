@@ -21,14 +21,16 @@ const Carousel = ({ images = [] }) => {
       <ImageWrapper>
         <Image src={images[page]} />
       </ImageWrapper>
-      <ButtonBar>
-        <Button onClick={prevPageHandler} disabled={page === 0}>
-          <Arrow left />
-        </Button>
-        <Button onClick={nextPageHandler} disabled={page === images.length - 1}>
-          <Arrow />
-        </Button>
-      </ButtonBar>
+      {images.length > 1 && (
+        <ButtonBar>
+          <Button onClick={prevPageHandler} disabled={page === 0}>
+            <Arrow left />
+          </Button>
+          <Button onClick={nextPageHandler} disabled={page === images.length - 1}>
+            <Arrow />
+          </Button>
+        </ButtonBar>
+      )}
       <Counter>
         {page + 1} / {images.length}
       </Counter>

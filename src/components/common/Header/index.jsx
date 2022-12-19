@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <Wrapper>
-      <Logo>AFinder</Logo>
+      <Logo to="/">AFinder</Logo>
       <Navigation>
         <NavLink to="/" state={{ active: location === '/' }}>
           Home

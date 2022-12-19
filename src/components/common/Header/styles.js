@@ -8,9 +8,10 @@ export const Wrapper = styled.header`
   background: #1b1c1d;
 `
 
-export const Logo = styled.div`
+export const Logo = styled(Link)`
   color: white;
   font-weight: bold;
+  text-decoration: none;
 `
 
 export const Navigation = styled.nav``

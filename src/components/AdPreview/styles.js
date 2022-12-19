@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(Link)`
   display: flex;
   flex-direction: column;
   border-radius: 4px;
@@ -9,6 +10,8 @@ export const Wrapper = styled.div`
   position: relative;
   cursor: pointer;
   background: ${props => (props.premium ? '#fff563' : 'white')};
+  text-decoration: none;
+  color: black;
 `
 
 export const AdDate = styled.span`
@@ -29,14 +32,10 @@ export const InfoBlock = styled.div`
   padding: 8px;
 `
 
-export const AdName = styled.h3``
+export const AdPrice = styled.span`
+  color: #4a4c50;
+`
 
-export const AdPrice = styled.span``
-
-export const SizeBlock = styled.div``
-
-export const AdRooms = styled.span``
-
-export const AdSquare = styled.span``
-
-export const AdAddress = styled.span``
+export const SizeBlock = styled.div`
+  color: #4a4c50;
+`
