@@ -6,13 +6,13 @@ import { Wrapper, RatingBlock, Phone, Email, Rating, Star } from './styles'
 const StarRating = ({ rating }) => (
   <Rating>
     {[1, 2, 3, 4, 5].map(r => (
-      <Star active={r <= rating} />
+      <Star key={r} active={r <= rating} />
     ))}
   </Rating>
 )
 
 const AdContact = () => {
-  const info = useSelector(state => state.ads.selected.contact)
+  const info = useSelector(state => state.ads.selected.contact) || {}
 
   return (
     <Wrapper>
