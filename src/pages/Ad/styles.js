@@ -27,6 +27,9 @@ export const TopBlock = styled.div`
   & > :first-child {
     flex: 1;
   }
+  & > :last-child {
+    min-width: 270px;
+  }
 `
 
 export const AdAddress = styled.span`
