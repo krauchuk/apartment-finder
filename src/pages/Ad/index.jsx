@@ -6,18 +6,9 @@ import Spinner from '../../components/common/Spinner'
 import Carousel from '../../components/common/Carousel'
 import Breadcrumbs from '../../components/Breadcrumbs'
 import Layout from '../../components/Layout'
+import AdContact from '../../components/AdContact'
 import actionTypes from '../../actions'
-import {
-  AdBlock,
-  AdHeader,
-  AdName,
-  AdAddress,
-  AdPrice,
-  MainInfo,
-  MainInfoBlock,
-  MainInfoRow,
-  Description,
-} from './styles'
+import { AdBlock, AdHeader, TopBlock, AdAddress, AdPrice, MainInfo, MainInfoBlock, MainInfoRow } from './styles'
 
 const Row = ({ title, info, children }) => (
   <MainInfoRow>
@@ -52,9 +43,12 @@ const AdPage = () => {
     <Layout>
       <AdBlock>
         <Breadcrumbs ad={data} />
-        <Carousel images={data.images} />
+        <TopBlock>
+          <Carousel images={data.images} />
+          <AdContact />
+        </TopBlock>
         <AdHeader>
-          <AdName>{data.name}</AdName>
+          <span>{data.name}</span>
           <AdPrice>${data.price}</AdPrice>
           <AdAddress>
             {data.city}, {data.address}
@@ -73,7 +67,7 @@ const AdPage = () => {
             <Row title="Wall material" info={data.wallMaterial} />
           </MainInfoBlock>
         </MainInfo>
-        <Description>{data.desc}</Description>
+        <div>{data.desc}</div>
       </AdBlock>
     </Layout>
   )

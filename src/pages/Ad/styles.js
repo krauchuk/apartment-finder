@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const AdBlock = styled.div`
-  max-width: 1000px;
+  max-width: 1300px;
   margin: auto;
   padding: 16px;
   & > :not(:last-child) {
@@ -18,7 +18,16 @@ export const AdHeader = styled.div`
   }
 `
 
-export const AdName = styled.span``
+export const TopBlock = styled.div`
+  display: flex;
+  justify-content: space-between;
+  border-radius: 4px;
+  border: 1px solid #e5e5e5;
+  overflow: hidden;
+  & > :first-child {
+    flex: 1;
+  }
+`
 
 export const AdAddress = styled.span`
   color: #2185d0;
@@ -58,4 +67,3 @@ export const MainInfoRow = styled.div`
     font-weight: bold;
   }
 `
-export const Description = styled.div``
