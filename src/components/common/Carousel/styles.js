@@ -98,4 +98,5 @@ export const Title = styled.div`
   font-size: 16px;
   text-align: center;
   padding: 0 80px;
+  z-index: -1;
 `
