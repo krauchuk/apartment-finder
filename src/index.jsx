@@ -25,11 +25,11 @@ const GlobalStyles = createGlobalStyle`
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
   }
 
   main {
     flex: 1;
-    position: relative;
   }
 `
 

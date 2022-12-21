@@ -44,7 +44,7 @@ const AdPage = () => {
       <AdBlock>
         <Breadcrumbs ad={data} />
         <TopBlock>
-          <Carousel images={data.images} />
+          <Carousel title={data.name} images={data.images} />
           <AdContact />
         </TopBlock>
         <AdHeader>
