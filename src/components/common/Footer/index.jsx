@@ -14,7 +14,6 @@ const Footer = () => {
       </Column>
       <Column>
         <ColumnTitle>Services</ColumnTitle>
-        <ColumnLink to="/realtors">Realtors</ColumnLink>
         <ColumnLink to="/check">Apartment check</ColumnLink>
       </Column>
       <Copyrights>Site design / logo © {year} My Company Inc</Copyrights>
