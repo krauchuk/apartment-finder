@@ -9,6 +9,7 @@ import FAQ from './pages/FAQ'
 import Ads from './pages/Ads'
 import Ad from './pages/Ad'
 import Contact from './pages/ContactUs'
+import Check from './pages/Check'
 import NotFound from './pages/NotFound'
 import store from './store'
 import history from './history'
@@ -41,6 +42,7 @@ ReactDom.render(
         <Route exact path="/" component={Home} />
         <Route path="/faq" component={FAQ} />
         <Route path="/contact" component={Contact} />
+        <Route path="/check" component={Check} />
         <Route path="/ads" component={Ads} />
         <Route path="/ad/:id" component={Ad} />
         <Route path="/404" component={NotFound} />
