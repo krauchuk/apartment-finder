@@ -24,7 +24,7 @@ const ContactUsPage = () => {
           </PhoneBlock>
         </PhoneList>
         <Description>
-          You can also contact us by email <Link href="mailto:mailto">spam@gmail.com</Link>
+          You can also contact us by email <Link href="mailto:spam@gmail.com">spam@gmail.com</Link>
         </Description>
       </ContactInfo>
     </Layout>
