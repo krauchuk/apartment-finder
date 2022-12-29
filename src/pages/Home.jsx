@@ -12,7 +12,10 @@ const HomePage = () => {
   const { items, loading } = useSelector(state => state.ads)
 
   const dispatch = useDispatch()
-  useEffect(() => dispatch({ type: actionTypes.LOAD_ADS, payload: { type: 'premium' } }), [dispatch])
+  useEffect(() => {
+    dispatch({ type: actionTypes.UPDATE_FILTER, payload: { page: 1, sort: 'date_asc' } })
+    dispatch({ type: actionTypes.LOAD_ADS, payload: { type: 'premium' } })
+  }, [dispatch])
 
   const searchHandler = () => history.push(`/ads${window.location.search}`)
 

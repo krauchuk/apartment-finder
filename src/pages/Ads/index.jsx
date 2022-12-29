@@ -18,10 +18,6 @@ const AdsPage = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    return () => dispatch({ type: actionTypes.UPDATE_FILTER, payload: { page: 1, sort: 'date_asc' } })
-  }, [])
-
-  useEffect(() => {
     dispatch({ type: actionTypes.LOAD_ADS, payload: { type: 'all' } })
     const search = new URLSearchParams(filter).toString()
     history.push({ search })
