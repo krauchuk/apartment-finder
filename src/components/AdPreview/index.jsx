@@ -6,7 +6,7 @@ import { Wrapper, AdDate, InfoBlock, AdPrice, SizeBlock, Separator } from './sty
 const AdPreview = ({ data, highlightPremium }) => {
   return (
     <Wrapper to={`/ad/${data.id}`} premium={highlightPremium && data.premium}>
-      <AdDate>{new Date(data.date).toLocaleDateString('en-US')}</AdDate>
+      <AdDate>{new Date(data.date).toLocaleDateString('en-GB')}</AdDate>
       <Image src={data.images[0]} />
       <InfoBlock>
         <h3>{data.name}</h3>
