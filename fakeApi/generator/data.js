@@ -1,7 +1,7 @@
 export const types = ['rent', 'sale']
 
 export const cities = [
-  'Warsaw',
+  'Warszawa',
   'Kraków',
   'Łódź',
   'Wrocław',
