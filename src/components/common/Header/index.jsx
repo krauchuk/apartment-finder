@@ -10,9 +10,6 @@ const Header = () => {
     <Wrapper>
       <Logo to="/">AFinder</Logo>
       <Navigation>
-        <NavLink to="/" state={{ active: location === '/' }}>
-          Home
-        </NavLink>
         <NavLink to="/faq" state={{ active: location === '/faq' }}>
           FAQ
         </NavLink>
