@@ -13,3 +13,9 @@ export const Grid = styled.div`
   gap: 16px;
   padding: 16px;
 `
+
+export const NoResults = styled.div`
+  position: absolute;
+  width: 100%;
+  text-align: center;
+`
