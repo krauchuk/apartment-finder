@@ -34,6 +34,16 @@ export const InfoBlock = styled.div`
 
 export const AdPrice = styled.span`
   color: #4a4c50;
+  & > span {
+    font-size: 14px;
+  }
+`
+
+export const Separator = styled.span`
+  &::before {
+    content: '/';
+    margin: 0 4px;
+  }
 `
 
 export const SizeBlock = styled.div`

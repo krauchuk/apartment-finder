@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Image from '../common/Image'
-import { Wrapper, AdDate, InfoBlock, AdPrice, SizeBlock } from './styles'
+import { Wrapper, AdDate, InfoBlock, AdPrice, SizeBlock, Separator } from './styles'
 
 const AdPreview = ({ data, highlightPremium }) => {
   return (
@@ -10,9 +10,18 @@ const AdPreview = ({ data, highlightPremium }) => {
       <Image src={data.images[0]} />
       <InfoBlock>
         <h3>{data.name}</h3>
-        <AdPrice>${data.price}</AdPrice>
+        <AdPrice>
+          ${data.price}
+          {data.type === 'rent' && (
+            <>
+              <Separator />
+              <span>month</span>
+            </>
+          )}
+        </AdPrice>
         <SizeBlock>
-          <span>{data.rooms} room(s)</span>/
+          <span>{data.rooms} room(s)</span>
+          <Separator />
           <span>
             {data.square} m<sup>2</sup>
           </span>

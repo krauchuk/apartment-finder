@@ -49,7 +49,10 @@ const AdPage = () => {
         </TopBlock>
         <AdHeader>
           <span>{data.name}</span>
-          <AdPrice>${data.price}</AdPrice>
+          <AdPrice>
+            ${data.price}
+            {data.type === 'rent' && <span>month</span>}
+          </AdPrice>
           <AdAddress>
             {data.city}, {data.address}
           </AdAddress>

@@ -33,12 +33,16 @@ export const TopBlock = styled.div`
 `
 
 export const AdAddress = styled.span`
-  color: #2185d0;
+  font-weight: bold;
 `
 
 export const AdPrice = styled.span`
   font-weight: bold;
   font-size: 20px;
+  & > span::before {
+    content: '/';
+    margin: 0 8px;
+  }
 `
 
 export const MainInfo = styled.div`
