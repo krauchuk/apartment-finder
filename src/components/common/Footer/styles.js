@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export const Wrapper = styled.footer`
   background: #1b1c1d;
-  min-height: 250px;
+  min-height: 150px;
   padding: 48px;
   display: flex;
   justify-content: space-between;
