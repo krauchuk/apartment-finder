@@ -8,7 +8,7 @@ const Question = ({ title, desc }) => {
   return (
     <Block>
       <Head onClick={() => setOpen(!open)}>{title}</Head>
-      <Body hide={!open}>{desc}</Body>
+      {open && <Body>{desc}</Body>}
     </Block>
   )
 }

@@ -34,8 +34,5 @@ export const Head = styled.div`
 `
 
 export const Body = styled.div`
-  transition: all 0.5s linear;
-  padding: ${props => (props.hide ? '0' : '8px')};
-  max-height: ${props => (props.hide ? '0' : '1000px')};
-  opacity: ${props => (props.hide ? '0' : '1')};
+  padding: 8px;
 `
