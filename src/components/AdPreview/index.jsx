@@ -4,8 +4,9 @@ import Image from '../common/Image'
 import { Wrapper, AdDate, InfoBlock, AdPrice, SizeBlock, Separator } from './styles'
 
 const AdPreview = ({ data, highlightPremium }) => {
+  console.log(highlightPremium, data.premium)
   return (
-    <Wrapper to={`/ad/${data.id}`} premium={highlightPremium && data.premium}>
+    <Wrapper to={`/ad/${data.id}`} $isPremium={highlightPremium && data.premium}>
       <AdDate>{new Date(data.date).toLocaleDateString('en-GB')}</AdDate>
       <Image src={data.images[0]} />
       <InfoBlock>

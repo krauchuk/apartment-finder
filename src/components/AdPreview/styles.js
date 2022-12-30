@@ -9,7 +9,7 @@ export const Wrapper = styled(Link)`
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  background: ${props => (props.premium ? '#fff563' : 'white')};
+  background: ${props => (props.$isPremium ? '#fff563' : 'white')};
   text-decoration: none;
   color: black;
 `
