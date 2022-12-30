@@ -1,32 +1,15 @@
 import React from 'react'
 
 import Layout from '../../components/Layout'
-import { Info, Title, Description, Packages, PackageBlock, NavLink } from './styles'
+import { Info, Title, Description, NavLink, Table, Price, Cross, Tick } from './styles'
+
+const services = ['View ad description', 'Call the seller', 'Final price clarification', 'Property inspection']
 
 const packages = [
-  { title: 'Start', services: ['View ad description'], price: 250 },
-  { title: 'Medium', services: ['View ad description', 'Call the seller', 'Final price clarification'], price: 500 },
-  {
-    title: 'Premium',
-    services: ['View ad description', 'Call the seller', 'Final price clarification', 'Property inspection'],
-    price: 750,
-  },
+  { title: 'Start', price: 250, services: [true, false, false, false] },
+  { title: 'Medium', price: 500, services: [true, true, true, false] },
+  { title: 'Premium', price: 750, services: [true, true, true, true] },
 ]
-
-const Package = ({ title, services, price }) => (
-  <PackageBlock>
-    <h2>{title}</h2>
-    <div>
-      <h4>Includes:</h4>
-      <ul>
-        {services.map(s => (
-          <li key={s}>- {s}</li>
-        ))}
-      </ul>
-    </div>
-    <h3>${price}</h3>
-  </PackageBlock>
-)
 
 const CheckPage = () => {
   return (
@@ -37,11 +20,36 @@ const CheckPage = () => {
           Does the ad look suspicious? You don&apos;t know what&apos;s worth checking in the apartment? <br />
           Our gardener can do it for you! At the moment we have three <strong>packages</strong>:
         </Description>
-        <Packages>
-          {packages.map(p => (
-            <Package key={p.title} title={p.title} services={p.services} price={p.price} />
-          ))}
-        </Packages>
+        <Table>
+          <thead>
+            <tr>
+              <td />
+              {packages.map(p => (
+                <th key={p.title}>{p.title}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {services.map((text, i) => (
+              <tr key={text}>
+                <td>{text}</td>
+                {packages.map(p => (
+                  <td key={p.title}>{p.services[i] ? <Tick>&#x2713;</Tick> : <Cross>X</Cross>}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td />
+              {packages.map(p => (
+                <td key={p.price}>
+                  <Price>${p.price}</Price>
+                </td>
+              ))}
+            </tr>
+          </tfoot>
+        </Table>
         <Description>
           Do you have any questions? <NavLink to="/contact">Contact us</NavLink>
         </Description>

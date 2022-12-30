@@ -22,41 +22,42 @@ export const Description = styled.div`
   color: #8d8e8e;
 `
 
-export const Packages = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  padding: 16px;
-`
-
-export const PackageBlock = styled.div`
-  max-width: 500px;
-  min-width: 250px;
-  border-radius: 4px;
-  border: 1px solid #e5e5e5;
-  text-align: center;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  h4 {
-    padding: 4px;
-  }
-  ul {
-    text-align: initial;
-    list-style: none;
-  }
-  & > :last-child {
-    font-weight: bold;
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: end;
-    margin-top: 16px;
-  }
-`
-
 export const NavLink = styled(Link)`
   text-decoration: none;
   color: #2185d0;
+`
+
+export const Table = styled.table`
+  border: 1px solid #dededf;
+  border-radius: 4px;
+  padding: 16px;
+  td {
+    padding: 8px;
+  }
+  th {
+    padding: 8px 16px;
+    border-bottom: 1px solid #dededf;
+    & > :first-child {
+      margin-bottom: 4px;
+    }
+  }
+`
+
+export const Price = styled.div`
+  padding: 4px;
+  border-radius: 4px;
+  background: grey;
+  color: white;
+  max-width: fit-content;
+  margin: auto;
+`
+
+export const Cross = styled.div`
+  color: #ccc;
+  text-align: center;
+`
+
+export const Tick = styled.div`
+  color: #19b504;
+  text-align: center;
 `
