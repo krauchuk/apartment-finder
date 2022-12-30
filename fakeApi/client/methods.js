@@ -66,3 +66,12 @@ export const getAllAds = params => {
 }
 
 export const getCities = () => cities
+
+export const getUser = data => {
+  if (!data.username || !data.password) throw new Error('Wrong login/password', { cause: 401 })
+
+  return {
+    name: data.username,
+    favorites: [],
+  }
+}

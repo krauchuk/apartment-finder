@@ -12,4 +12,11 @@ export default {
   LOAD_CITIES_FAILURE: 'load_cities_failure',
 
   UPDATE_FILTER: 'update_filter',
+
+  TOGGLE_MODAL: 'toggle_modal',
+
+  LOGIN: 'login',
+  SET_USER: 'set_user',
+
+  SET_LOADING: 'set_loading',
 }

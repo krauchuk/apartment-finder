@@ -3,11 +3,13 @@ import createSagaMiddleware from 'redux-saga'
 
 import ads from './ads'
 import filter from './filter'
+import app from './app'
 import rootSaga from '../sagas'
 
 const rootReducer = combineReducers({
   ads,
   filter,
+  app,
 })
 
 const devtools = process.env.NODE_ENV !== 'production' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null

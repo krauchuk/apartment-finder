@@ -30,3 +30,24 @@ export const NavLink = styled(Link)`
       color: white;
     `}
 `
+
+export const Actions = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  button {
+    margin-left: 8px;
+    height: 32px;
+  }
+`
+
+export const Username = styled(Link)`
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  height: 32px;
+  color: white;
+  margin-left: 8px;
+  font-weight: bold;
+  text-decoration: none;
+`
