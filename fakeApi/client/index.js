@@ -1,6 +1,10 @@
-import { getPremiumAds, getAllAds, getAdById, getCities } from './methods'
+import { getPremiumAds, getAllAds, getAdById, getCities, getUser } from './methods'
 
-const getMethod = url => {
+const getMethod = (url, body) => {
+  if (url.includes('fake.api/login')) {
+    return () => getUser(body)
+  }
+
   if (url.includes('fake.api/cities')) {
     return () => getCities()
   }
@@ -39,18 +43,21 @@ const getMethod = url => {
   return null
 }
 
-export default {
-  get: url =>
-    new Promise((resolve, reject) => {
-      const method = getMethod(url)
-      if (!method) reject(new Error('Wrong URL'))
+const getResponse = (url, body = {}) =>
+  new Promise((resolve, reject) => {
+    const method = getMethod(url, body)
+    if (!method) reject(new Error('Wrong URL'))
 
-      setTimeout(() => {
-        try {
-          resolve(method())
-        } catch (e) {
-          reject(e)
-        }
-      }, Math.random() * 1500)
-    }),
+    setTimeout(() => {
+      try {
+        resolve(method())
+      } catch (e) {
+        reject(e)
+      }
+    }, Math.random() * 1500)
+  })
+
+export default {
+  get: url => getResponse(url),
+  post: (url, body) => getResponse(url, body),
 }
