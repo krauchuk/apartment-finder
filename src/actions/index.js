@@ -7,6 +7,10 @@ export default {
   LOAD_AD_SUCCESS: 'load_ad_success',
   LOAD_AD_FAILURE: 'load_ad_failure',
 
+  LOAD_REVIEWS: 'load_reviews',
+  LOAD_REVIEWS_SUCCESS: 'load_reviews_success',
+  LOAD_REVIEWS_FAILURE: 'load_reviews_failure',
+
   LOAD_CITIES: 'load_cities',
   LOAD_CITIES_SUCCESS: 'load_cities_success',
   LOAD_CITIES_FAILURE: 'load_cities_failure',

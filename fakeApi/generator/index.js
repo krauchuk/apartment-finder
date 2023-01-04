@@ -1,5 +1,5 @@
 import { getRandomDate, getRandomItem, getRandomNumber, getRandomPics } from './helpers'
-import { types, cities } from './data'
+import { types, cities, users } from './data'
 
 export default count => {
   const ads = []
@@ -10,8 +10,7 @@ export default count => {
     const basePrice = getRandomNumber(100, 1000)
     const rooms = getRandomItem([1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7])
     const city = getRandomItem(cities)
-    const name = getRandomItem(['John Doe', 'Banana LLC', 'Adam Eve', 'Orange LLC'])
-    const isCompany = name.includes('LLC')
+    const user = getRandomItem(users)
 
     ads.push({
       id: i,
@@ -30,10 +29,11 @@ export default count => {
       wallMaterial: getRandomItem(['monolith', 'bricks', 'wood', 'gas silicate']),
       desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mauris justo, sollicitudin et libero non, ultrices interdum nisl. Ut eu faucibus diam, et maximus lorem. Nunc in magna tristique tellus gravida suscipit. Praesent malesuada, felis egestas mattis porttitor, lacus metus scelerisque urna, eget condimentum velit quam eget tortor. Nunc at tellus vestibulum, efficitur nunc non, tristique ante. Nulla tincidunt felis a ipsum commodo, a rhoncus ipsum congue. Nulla laoreet orci quis pretium pulvinar. Mauris porttitor ex ipsum, eget lobortis purus interdum ut. Fusce vulputate vulputate dignissim. Suspendisse suscipit tincidunt egestas. Sed nec dui eget turpis fringilla sollicitudin nec interdum leo. Cras pulvinar nisl in mi vehicula fermentum. Suspendisse condimentum neque volutpat, iaculis magna eu, malesuada dolor.',
       contact: {
-        name,
-        type: isCompany ? 'company' : 'person',
-        rating: isCompany ? getRandomNumber(1, 5) : null,
-        votes: isCompany ? getRandomNumber(1, 500) : null,
+        id: user.id,
+        name: user.name,
+        type: user.type,
+        rating: user.rating || null,
+        votes: user.votes || null,
         phone: '+48 111 111 111',
         email: getRandomItem(['spam@gmail.com', 'no-reply@gmx.com', null]),
       },

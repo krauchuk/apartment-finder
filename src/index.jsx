@@ -14,6 +14,7 @@ import NotFound from './pages/NotFound'
 import store from './store'
 import history from './history'
 import LoginModal from './components/LoginModal'
+import ReviewModal from './components/ReviewModal'
 import ModalBackdrop from './components/common/ModalBackdrop'
 
 const GlobalStyles = createGlobalStyle`
@@ -64,6 +65,7 @@ const App = () => {
       </Router>
       <ModalBackdrop show={modalIsOpen}>
         <LoginModal />
+        <ReviewModal />
       </ModalBackdrop>
     </>
   )

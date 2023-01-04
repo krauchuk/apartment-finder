@@ -1,4 +1,5 @@
 import { getData } from './data'
+import { users } from '../generator/data'
 
 const { ads, cities } = getData()
 
@@ -74,4 +75,12 @@ export const getUser = data => {
     name: data.username,
     favorites: [],
   }
+}
+
+export const getReviewsById = ({ id }) => {
+  const user = users.find(u => u.id === id)
+
+  if (!user) throw new Error('User not found', { cause: 404 })
+
+  return user.reviews || []
 }

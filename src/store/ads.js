@@ -5,6 +5,10 @@ const initState = {
   pages: 0,
   count: 0,
   selected: {},
+  reviews: {
+    items: [],
+    loading: true,
+  },
   loading: true,
 }
 
@@ -50,6 +54,33 @@ export default function ads(state = initState, action) {
       return {
         ...state,
         loading: false,
+      }
+
+    case types.LOAD_REVIEWS:
+      return {
+        ...state,
+        reviews: {
+          items: [],
+          loading: true,
+        },
+      }
+
+    case types.LOAD_REVIEWS_SUCCESS:
+      return {
+        ...state,
+        reviews: {
+          items: action.payload,
+          loading: false,
+        },
+      }
+
+    case types.LOAD_REVIEWS_FAILURE:
+      return {
+        ...state,
+        reviews: {
+          items: [],
+          loading: false,
+        },
       }
 
     default:

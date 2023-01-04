@@ -3,6 +3,7 @@ import types from '../actions'
 const initState = {
   modals: {
     login: false,
+    reviews: false,
   },
   user: {},
   loading: false,
