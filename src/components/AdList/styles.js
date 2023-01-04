@@ -15,7 +15,5 @@ export const Grid = styled.div`
 `
 
 export const NoResults = styled.div`
-  position: absolute;
-  width: 100%;
   text-align: center;
 `

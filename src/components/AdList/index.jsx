@@ -12,7 +12,13 @@ const AdList = ({ items, loading, title, highlightPremium }) => {
         <Spinner />
       ) : (
         <Grid>
-          {!items.length && <NoResults>No Ads :(</NoResults>}
+          {!items.length && (
+            <>
+              <div />
+              <NoResults>No Ads :(</NoResults>
+              <div />
+            </>
+          )}
           {items.map(ad => (
             <AdPreview key={ad.id} data={ad} highlightPremium={highlightPremium} />
           ))}
