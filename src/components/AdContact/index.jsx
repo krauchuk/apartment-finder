@@ -1,22 +1,30 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { Wrapper, RatingBlock, Phone, Email, Rating, Star } from './styles'
+import Rating from '../common/Rating'
+import actions from '../../actions'
+import { Wrapper, RatingBlock, Phone, Email, Votes } from './styles'
 
 const AdContact = () => {
   const info = useSelector(state => state.ads.selected.contact) || {}
+  const authorized = !!useSelector(state => state.app.user.name)
+  const dispatch = useDispatch()
+
+  const reviewHandler = () => {
+    if (authorized) {
+      dispatch({ type: actions.LOAD_REVIEWS, payload: { id: info.id } })
+      dispatch({ type: actions.TOGGLE_MODAL, payload: 'reviews' })
+    } else {
+      dispatch({ type: actions.TOGGLE_MODAL, payload: 'login' })
+    }
+  }
 
   return (
     <Wrapper>
       <h3>{info.name}</h3>
       {info.type === 'company' && (
         <RatingBlock>
-          <Rating>
-            {[1, 2, 3, 4, 5].map(r => (
-              <Star key={r} active={r <= info.rating} />
-            ))}
-          </Rating>{' '}
-          {info.votes} vote(s)
+          <Rating value={info.rating} /> <Votes onClick={reviewHandler}>{info.votes} vote(s)</Votes>
         </RatingBlock>
       )}
       <Phone href={`tel:${info.phone}`}>Make a phone call</Phone>

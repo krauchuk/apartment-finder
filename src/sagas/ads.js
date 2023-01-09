@@ -32,6 +32,25 @@ function* loadAd({ payload }) {
   }
 }
 
+function* loadReviews({ payload }) {
+  try {
+    const data = yield call(apiClient.get, `fake.api/reviews/${payload.id}`)
+
+    yield put({ type: actionTypes.LOAD_REVIEWS_SUCCESS, payload: data })
+  } catch (e) {
+    if (e.cause === 404) {
+      history.push('/404')
+    }
+
+    yield put({ type: actionTypes.LOAD_REVIEWS_FAILURE })
+    // TODO - show notification
+  }
+}
+
 export default function* adsSaga() {
-  yield all([takeLatest(actionTypes.LOAD_ADS, loadAds), takeLatest(actionTypes.LOAD_AD, loadAd)])
+  yield all([
+    takeLatest(actionTypes.LOAD_ADS, loadAds),
+    takeLatest(actionTypes.LOAD_AD, loadAd),
+    takeLatest(actionTypes.LOAD_REVIEWS, loadReviews),
+  ])
 }

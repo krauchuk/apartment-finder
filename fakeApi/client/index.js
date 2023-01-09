@@ -1,4 +1,4 @@
-import { getPremiumAds, getAllAds, getAdById, getCities, getUser } from './methods'
+import { getPremiumAds, getAllAds, getAdById, getCities, getUser, getReviewsById } from './methods'
 
 const getMethod = (url, body) => {
   if (url.includes('fake.api/login')) {
@@ -12,6 +12,11 @@ const getMethod = (url, body) => {
   if (url.includes('fake.api/ads/')) {
     const id = +url.split('fake.api/ads/')[1]
     return () => getAdById({ id })
+  }
+
+  if (url.includes('fake.api/reviews/')) {
+    const id = +url.split('fake.api/reviews/')[1]
+    return () => getReviewsById({ id })
   }
 
   if (url.includes('fake.api/ads?')) {

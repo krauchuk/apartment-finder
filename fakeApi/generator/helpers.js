@@ -18,3 +18,17 @@ export const getRandomPics = city => {
 
   return imageArray
 }
+
+export const getRandomReviews = count => {
+  const result = []
+
+  for (let i = 0; i <= count; i += 1) {
+    result.push({
+      name: getRandomItem(['Adam', 'Eve', 'Max', 'Itan', 'Joe', 'Bob']),
+      rating: getRandomNumber(1, 5),
+      text: getRandomItem(['OK', 'Not ok', 'So-so', 'Disgusting', 'Excellent', 'Scammers!']),
+    })
+  }
+
+  return result
+}
