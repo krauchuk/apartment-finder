@@ -73,6 +73,9 @@ export const getUser = data => {
 
   return {
     name: data.username,
+    avatar: 'https://via.placeholder.com/450x450',
+    email: 'user@email.com',
+    phone: '+48 111 111 111',
     favorites: [],
   }
 }

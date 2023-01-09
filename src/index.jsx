@@ -11,6 +11,7 @@ import Ad from './pages/Ad'
 import Contact from './pages/ContactUs'
 import Check from './pages/Check'
 import NotFound from './pages/NotFound'
+import Profile from './pages/Profile'
 import store from './store'
 import history from './history'
 import LoginModal from './components/LoginModal'
@@ -43,6 +44,8 @@ const GlobalStyles = createGlobalStyle`
 
 const App = () => {
   const modals = useSelector(state => state.app.modals)
+  const authorized = !!useSelector(state => state.app.user.name)
+
   const modalIsOpen = Object.keys(modals).reduce((acc, key) => {
     if (modals[key]) return true
     return acc
@@ -59,6 +62,7 @@ const App = () => {
           <Route path="/check" component={Check} />
           <Route path="/ads" component={Ads} />
           <Route path="/ad/:id" component={Ad} />
+          {authorized && <Route path="/profile" component={Profile} />}
           <Route path="/404" component={NotFound} />
           <Route component={NotFound} />
         </Switch>
