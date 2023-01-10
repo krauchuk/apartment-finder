@@ -15,6 +15,10 @@ export default {
   LOAD_CITIES_SUCCESS: 'load_cities_success',
   LOAD_CITIES_FAILURE: 'load_cities_failure',
 
+  LOAD_FAVORITES: 'load_favorites',
+  LOAD_FAVORITES_SUCCESS: 'load_favorites_success',
+  LOAD_FAVORITES_FAILURE: 'load_favorites_failure',
+
   UPDATE_FILTER: 'update_filter',
 
   TOGGLE_MODAL: 'toggle_modal',

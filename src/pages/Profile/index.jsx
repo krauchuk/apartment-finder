@@ -1,40 +1,53 @@
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
 
 import Layout from '../../components/Layout'
 import Image from '../../components/common/Image'
 import AdList from '../../components/AdList'
-import { Container, Sidebar, Navigation, Tab, Content, UserInfo } from './styles'
+import actions from '../../actions'
+import { Container, Sidebar, Navigation, Tab, Content, InfoField, Favorite } from './styles'
 
 const ProfilePage = () => {
-  const user = useSelector(state => state.app.user)
-  const [view, setView] = useState('general')
+  const { tab } = useParams()
+  const { data, favorites, loading } = useSelector(state => state.user)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (tab === 'favorite') {
+      dispatch({ type: actions.LOAD_FAVORITES })
+    }
+  }, [tab])
 
   return (
     <Layout>
       <Container>
         <Sidebar>
-          <Image src={user.avatar} />
+          <Image src={data.avatar} />
           <Navigation>
-            <Tab onClick={() => setView('general')}>General</Tab>
-            <Tab onClick={() => setView('favorite')}>Favorite Ads</Tab>
+            <Tab to="general">General</Tab>
+            <Tab to="favorite">Favorite Ads</Tab>
           </Navigation>
         </Sidebar>
         <Content>
-          {view === 'general' && (
+          {tab === 'general' && (
             <>
-              <UserInfo>
-                <h4>Username</h4> {user.name}
-              </UserInfo>
-              <UserInfo>
-                <h4>Email</h4> {user.email}
-              </UserInfo>
-              <UserInfo>
-                <h4>Phone</h4> {user.phone}
-              </UserInfo>
+              <InfoField>
+                <h4>Username</h4> {data.name}
+              </InfoField>
+              <InfoField>
+                <h4>Email</h4> {data.email}
+              </InfoField>
+              <InfoField>
+                <h4>Phone</h4> {data.phone}
+              </InfoField>
             </>
           )}
-          {view === 'favorite' && <AdList items={user.favorites} />}
+          {tab === 'favorite' && (
+            <Favorite>
+              <AdList items={favorites} loading={loading} />
+            </Favorite>
+          )}
         </Content>
       </Container>
     </Layout>

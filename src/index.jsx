@@ -62,7 +62,7 @@ const App = () => {
           <Route path="/check" component={Check} />
           <Route path="/ads" component={Ads} />
           <Route path="/ad/:id" component={Ad} />
-          {authorized && <Route path="/profile" component={Profile} />}
+          {authorized && <Route path="/profile/:tab" component={Profile} />}
           <Route path="/404" component={NotFound} />
           <Route component={NotFound} />
         </Switch>

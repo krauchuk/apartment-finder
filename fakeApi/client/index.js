@@ -7,6 +7,7 @@ import {
   getReviewsById,
   saveFavorite,
   deleteFavorite,
+  getFavorites,
 } from './methods'
 
 const getMethod = (url, body, method) => {
@@ -26,6 +27,10 @@ const getMethod = (url, body, method) => {
 
   if (url.includes('fake.api/login')) {
     return () => getUser(body)
+  }
+
+  if (url.includes('fake.api/favorites')) {
+    return () => getFavorites()
   }
 
   if (url.includes('fake.api/cities')) {

@@ -26,7 +26,7 @@ const Header = () => {
           </NavLink>
         </Navigation>
         {!username && <Button onClick={showLogin}>Login</Button>}
-        {!!username && <Username to="/profile">{username}</Username>}
+        {!!username && <Username to="/profile/general">{username}</Username>}
       </Actions>
     </Wrapper>
   )

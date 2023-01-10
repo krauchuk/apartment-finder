@@ -32,6 +32,21 @@ function* toggleFavorite() {
   }
 }
 
+function* loadFavorites() {
+  try {
+    const data = yield call(apiClient.get, `fake.api/favorites`)
+
+    yield put({ type: actionTypes.LOAD_FAVORITES_SUCCESS, payload: data })
+  } catch (e) {
+    // TODO - show notification
+    yield put({ type: actionTypes.LOAD_FAVORITES_FAILURE })
+  }
+}
+
 export default function* userSaga() {
-  yield all([takeLatest(actionTypes.LOGIN, login), takeLatest(actionTypes.TOGGLE_FAVORITE, toggleFavorite)])
+  yield all([
+    takeLatest(actionTypes.LOGIN, login),
+    takeLatest(actionTypes.TOGGLE_FAVORITE, toggleFavorite),
+    takeLatest(actionTypes.LOAD_FAVORITES, loadFavorites),
+  ])
 }

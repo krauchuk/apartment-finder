@@ -81,7 +81,6 @@ export const getUser = data => {
     avatar: 'https://via.placeholder.com/450x450',
     email: 'user@email.com',
     phone: '+48 111 111 111',
-    favorites: [],
   }
 }
 
@@ -109,3 +108,5 @@ export const deleteFavorite = ({ id }) => {
     favorites.splice(index, 1)
   }
 }
+
+export const getFavorites = () => favorites
