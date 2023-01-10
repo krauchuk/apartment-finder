@@ -23,4 +23,6 @@ export default {
   SET_USER: 'set_user',
 
   SET_LOADING: 'set_loading',
+
+  TOGGLE_FAVORITE: 'toggle_favorite',
 }

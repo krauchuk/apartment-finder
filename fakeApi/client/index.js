@@ -1,6 +1,29 @@
-import { getPremiumAds, getAllAds, getAdById, getCities, getUser, getReviewsById } from './methods'
+import {
+  getPremiumAds,
+  getAllAds,
+  getAdById,
+  getCities,
+  getUser,
+  getReviewsById,
+  saveFavorite,
+  deleteFavorite,
+} from './methods'
 
-const getMethod = (url, body) => {
+const getMethod = (url, body, method) => {
+  if (method === 'put') {
+    if (url.includes('fake.api/favorite')) {
+      const id = +url.split('fake.api/favorite/')[1]
+      return () => saveFavorite({ id })
+    }
+  }
+
+  if (method === 'delete') {
+    if (url.includes('fake.api/favorite')) {
+      const id = +url.split('fake.api/favorite/')[1]
+      return () => deleteFavorite({ id })
+    }
+  }
+
   if (url.includes('fake.api/login')) {
     return () => getUser(body)
   }
@@ -48,9 +71,9 @@ const getMethod = (url, body) => {
   return null
 }
 
-const getResponse = (url, body = {}) =>
+const getResponse = (url, body = {}, httpMethod) =>
   new Promise((resolve, reject) => {
-    const method = getMethod(url, body)
+    const method = getMethod(url, body, httpMethod)
     if (!method) reject(new Error('Wrong URL'))
 
     setTimeout(() => {
@@ -63,6 +86,8 @@ const getResponse = (url, body = {}) =>
   })
 
 export default {
-  get: url => getResponse(url),
-  post: (url, body) => getResponse(url, body),
+  get: url => getResponse(url, null, 'get'),
+  post: (url, body) => getResponse(url, body, 'post'),
+  put: (url, body) => getResponse(url, body, 'put'),
+  delete: url => getResponse(url, null, 'delete'),
 }
