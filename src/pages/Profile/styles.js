@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export const Container = styled.div`
   display: flex;
@@ -16,6 +17,7 @@ export const Sidebar = styled.div`
   border-radius: 4px;
   border: 1px solid #dededf;
   padding: 16px;
+  height: max-content;
 `
 
 export const Navigation = styled.div`
@@ -27,7 +29,7 @@ export const Navigation = styled.div`
   }
 `
 
-export const Tab = styled.a`
+export const Tab = styled(Link)`
   display: block;
   font-size: 14px;
   text-decoration: none;
@@ -46,10 +48,14 @@ export const Content = styled.div`
   flex-direction: column;
 `
 
-export const UserInfo = styled.div`
+export const InfoField = styled.div`
   display: flex;
   margin-bottom: 8px;
   h4 {
     margin-right: 8px;
   }
+`
+
+export const Favorite = styled.div`
+  margin: -16px;
 `

@@ -27,9 +27,13 @@ export const TopBlock = styled.div`
   & > :first-child {
     flex: 1;
   }
-  & > :last-child {
-    min-width: 270px;
-  }
+`
+
+export const ContactBox = styled.div`
+  min-width: 270px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 `
 
 export const AdAddress = styled.span`
@@ -73,4 +77,9 @@ export const MainInfoRow = styled.div`
   & > :last-child {
     font-weight: bold;
   }
+`
+
+export const Actions = styled.div`
+  padding: 16px;
+  text-align: end;
 `

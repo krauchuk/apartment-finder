@@ -1,4 +1,4 @@
-import { getData } from './data'
+import { getData, favorites } from './data'
 import { users } from '../generator/data'
 
 const { ads, cities } = getData()
@@ -8,7 +8,12 @@ export const getAdById = ({ id }) => {
 
   if (!ad) throw new Error('Ad not found', { cause: 404 })
 
-  return ad
+  const favorite = !!favorites.find(f => f.id === id)
+
+  return {
+    ...ad,
+    favorite,
+  }
 }
 
 export const getPremiumAds = () => {
@@ -76,7 +81,6 @@ export const getUser = data => {
     avatar: 'https://via.placeholder.com/450x450',
     email: 'user@email.com',
     phone: '+48 111 111 111',
-    favorites: [],
   }
 }
 
@@ -87,3 +91,22 @@ export const getReviewsById = ({ id }) => {
 
   return user.reviews || []
 }
+
+export const saveFavorite = ({ id }) => {
+  const saved = favorites.find(f => f.id === id)
+
+  if (!saved) {
+    const ad = ads.find(a => a.id === id)
+    favorites.push(ad)
+  }
+}
+
+export const deleteFavorite = ({ id }) => {
+  const index = favorites.findIndex(f => f.id === id)
+
+  if (index >= 0) {
+    favorites.splice(index, 1)
+  }
+}
+
+export const getFavorites = () => favorites

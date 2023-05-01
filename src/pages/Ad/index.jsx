@@ -7,8 +7,20 @@ import Carousel from '../../components/common/Carousel'
 import Breadcrumbs from '../../components/Breadcrumbs'
 import Layout from '../../components/Layout'
 import AdContact from '../../components/AdContact'
+import FavoriteButton from '../../components/FavoriteButton'
 import actionTypes from '../../actions'
-import { AdBlock, AdHeader, TopBlock, AdAddress, AdPrice, MainInfo, MainInfoBlock, MainInfoRow } from './styles'
+import {
+  AdBlock,
+  AdHeader,
+  TopBlock,
+  AdAddress,
+  AdPrice,
+  MainInfo,
+  MainInfoBlock,
+  MainInfoRow,
+  Actions,
+  ContactBox,
+} from './styles'
 
 const Row = ({ title, info, children }) => (
   <MainInfoRow>
@@ -45,7 +57,12 @@ const AdPage = () => {
         <Breadcrumbs ad={data} />
         <TopBlock>
           <Carousel title={data.name} images={data.images} />
-          <AdContact />
+          <ContactBox>
+            <AdContact />
+            <Actions>
+              <FavoriteButton />
+            </Actions>
+          </ContactBox>
         </TopBlock>
         <AdHeader>
           <span>{data.name}</span>
