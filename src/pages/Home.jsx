@@ -6,7 +6,7 @@ import Filter from '../components/Filter'
 import AdList from '../components/AdList'
 import Layout from '../components/Layout'
 import actionTypes from '../actions'
-import history from '../history'
+import history from '../routing/history'
 
 const HomePage = () => {
   const { items, loading } = useSelector(state => state.ads)

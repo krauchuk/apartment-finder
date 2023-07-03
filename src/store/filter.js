@@ -1,5 +1,5 @@
 import types from '../actions'
-import history from '../history'
+import history from '../routing/history'
 
 const isAdsPage = history.location.pathname === '/ads'
 const searchParams = new URLSearchParams(isAdsPage ? window.location.search : '')

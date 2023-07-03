@@ -7,7 +7,7 @@ import AdList from '../../components/AdList'
 import Pagination from '../../components/Pagination'
 import Layout from '../../components/Layout'
 import actionTypes from '../../actions'
-import history from '../../history'
+import history from '../../routing/history'
 import { searchParamsSelector } from '../../store/filter'
 import { FilterWrapper, AdsCounter, TopPanel } from './styles'
 

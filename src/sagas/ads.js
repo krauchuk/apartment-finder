@@ -2,7 +2,7 @@ import { select, call, put, takeLatest, all } from 'redux-saga/effects'
 
 import apiClient from '../../fakeApi/client'
 import actionTypes from '../actions'
-import history from '../history'
+import history from '../routing/history'
 import { searchParamsSelector } from '../store/filter'
 
 function* loadAds({ payload }) {
