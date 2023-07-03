@@ -11,7 +11,8 @@ import Ad from './pages/Ad'
 import Contact from './pages/ContactUs'
 import Check from './pages/Check'
 import NotFound from './pages/NotFound'
-import Profile from './pages/Profile'
+import ProfileGeneral from './pages/Profile/General'
+import ProfileFavorite from './pages/Profile/Favorite'
 import store from './store'
 import history from './routing/history'
 import PrivateRoute from './routing/PrivateRoute'
@@ -62,7 +63,8 @@ const App = () => {
           <Route path="/check" component={Check} />
           <Route path="/ads" component={Ads} />
           <Route path="/ad/:id" component={Ad} />
-          <PrivateRoute path="/profile/:tab" component={Profile} />
+          <PrivateRoute path="/profile/general" component={ProfileGeneral} />
+          <PrivateRoute path="/profile/favorite" component={ProfileFavorite} />
           <Route path="/404" component={NotFound} />
           <Route component={NotFound} />
         </Switch>

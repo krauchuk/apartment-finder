@@ -47,15 +47,3 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
 `
-
-export const InfoField = styled.div`
-  display: flex;
-  margin-bottom: 8px;
-  h4 {
-    margin-right: 8px;
-  }
-`
-
-export const Favorite = styled.div`
-  margin: -16px;
-`
